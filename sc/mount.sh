@@ -5,13 +5,12 @@
 ##
 
 ## NAME DISK
-name="Harddisk"
-# ex. name="aa,cc,dd" 
-
+echo -e "\033[1;34mex. Disk Name: wkwk, pp, HDD\033[0m"
+read -p "Disk Name: " name
 ## MOUNT DIRECTORY
-directory="/media/HDD"
-# ex. directory="/a,/bb,/cc"
-
+echo -e "\033[1;34mex. Mount Directory: /mnt, /media/pp, /HDD\033[0m"
+read -p "Mount Directory: " directory
+echo -e ""
 
 ##
 # Source
@@ -41,4 +40,3 @@ if [ -n "$aa" ]; then
     else 
     echo -e "\033[0;34mNone.\033[0m"
 fi
-tes
