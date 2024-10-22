@@ -49,11 +49,11 @@ mv /usr/share/desktop-base/kali-theme/background /usr/share/desktop-base/kali-th
 mv /usr/share/desktop-base/kali-theme/background.svg /usr/share/desktop-base/kali-theme/backup
 cp -r /media/HDD-Storage/Backups/Backup-Images/kali-theme/background /usr/share/desktop-base/kali-theme
 cp -r /media/HDD-Storage/Backups/Backup-Images/kali-theme/background.svg /usr/share/desktop-base/kali-theme/
-mkdir -p /boot/grub/themes/backup
-mv /boot/grub/themes/kali/grub-4x3.png /boot/grub/themes/backup
-mv /boot/grub/themes/kali/grub-16x9.png /boot/grub/themes/backup
-cp -r /media/HDD-Storage/Backups/Backup-Images/kali-theme/grub-4x3.png /boot/grub/themes/
-cp -r /media/HDD-Storage/Backups/Backup-Images/kali-theme/grub-16x9.png /boot/grub/themes/
+mkdir -p /boot/grub/themes/kali/backup
+mv /boot/grub/themes/kali/grub-4x3.png /boot/grub/themes/kali/backup
+mv /boot/grub/themes/kali/grub-16x9.png /boot/grub/themes/kali/backup
+cp -r /media/HDD-Storage/Backups/Backup-Images/kali-theme/grub-4x3.png /boot/grub/themes/kali/
+cp -r /media/HDD-Storage/Backups/Backup-Images/kali-theme/grub-16x9.png /boot/grub/themes/kali/
 if [ -n "$aa" ]; then
     aa=$(echo -e "$aa" | sed '$ s/\n$//')
     echo -e "$aa"
