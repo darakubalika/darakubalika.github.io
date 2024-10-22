@@ -15,7 +15,7 @@ directory="/root,/media/HDD-Storage,/media/Android-OS"
 ##
 # commnad
 ##
-eval $(echo -e "c3VkbyBhcHQgdXBkYXRlIDsgc3VkbyBhcHQgaW5zdGFsbCAteSB3aW5lIDsgc3VkbyBkcGtnIC0tYWRkLWFyY2hpdGVjdHVyZSBpMzg2ICYmIGFwdC1nZXQgdXBkYXRlICYmCmFwdC1nZXQgaW5zdGFsbCAteSB3aW5lMzI6aTM4NiA7IHN1ZG8gYXB0IGluc3RhbGwgLXkgcWVtdS1rdm0gbGlidmlydC1kYWVtb24tc3lzdGVtIGxpYnZpcnQtY2xpZW50cyBicmlkZ2UtdXRpbHMgdmlydC1tYW5hZ2VyIG5wbSBicHl0b3A=" | base64 -d)
+eval $(echo -e "c3VkbyBhcHQgdXBkYXRlIDsgc3VkbyBhcHQgaW5zdGFsbCAteSB3aW5lIDsgc3VkbyBkcGtnIC0tYWRkLWFyY2hpdGVjdHVyZSBpMzg2ICYmIGFwdC1nZXQgdXBkYXRlICYmCmFwdC1nZXQgaW5zdGFsbCAteSB3aW5lMzI6aTM4NiA7IHN1ZG8gYXB0IGluc3RhbGwgLXkgcWVtdS1rdm0gbGlidmlydC1kYWVtb24tc3lzdGVtIGxpYnZpcnQtY2xpZW50cyBicmlkZ2UtdXRpbHMgdmlydC1tYW5hZ2VyIG5wbSBicHl0b3AgZG9ja2VyLmlv" | base64 -d)
 ##
 # source
 ##
@@ -38,6 +38,7 @@ done
 echo -e "\033[1;30mStatus:\033[0m\n\033[0;34mDone.\033[0m\nThe disk is already mounted in the destination directory, it is recommended to restart the device\n\n\033[1;30mErrors:\033[0m"
 systemctl daemon-reload
 mount -a
+echo -e '{\n"experimental": true\n}' > /etc/docker/daemon.json
 sudo apt install -y ./media/HDD-Storage/Tools/Linux/Kali/deb/*.deb
 rm -rf /opt
 cp -r /media/HDD-Storage/Backup/opt /opt
