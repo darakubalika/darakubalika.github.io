@@ -54,6 +54,12 @@ mv /boot/grub/themes/kali/grub-4x3.png /boot/grub/themes/kali/backup
 mv /boot/grub/themes/kali/grub-16x9.png /boot/grub/themes/kali/backup
 cp -r /media/HDD-Storage/Backups/Backup-Images/kali-theme/grub-4x3.png /boot/grub/themes/kali/
 cp -r /media/HDD-Storage/Backups/Backup-Images/kali-theme/grub-16x9.png /boot/grub/themes/kali/
+mkdir -p /usr/share/grub/themes/kali/backup
+mv /usr/share/grub/themes/kali/grub-4x3.png /usr/share/grub/themes/kali/backup
+mv /usr/share/grub/themes/kali/grub-16x9.png /usr/share/grub/themes/kali/backup
+cp -r /media/HDD-Storage/Backups/Backup-Images/kali-theme/grub-4x3.png /usr/share/grub/themes/kali/
+cp -r /media/HDD-Storage/Backups/Backup-Images/kali-theme/grub-16x9.png /usr/share/grub/themes/kali/
+
 if [ -n "$aa" ]; then
     aa=$(echo -e "$aa" | sed '$ s/\n$//')
     echo -e "$aa"
