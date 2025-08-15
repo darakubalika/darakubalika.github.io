@@ -15,7 +15,6 @@ directory="/root,/media/HDD-Storage,/media/Android-OS"
 ##
 # commnad
 ##
-echo "IyBmaXJlZm94IGJpbmQKL29wdC9kYXRhLW1vemlsbGEgIC9yb290Ly5tb3ppbGxhICBub25lICBiaW5kICAwICAw" | base64 -d > /etc/fstab
 eval $(echo -e "c3VkbyBhcHQgdXBkYXRlIDsgc3VkbyBhcHQgaW5zdGFsbCAteSB3aW5lIDsgc3VkbyBkcGtnIC0tYWRkLWFyY2hpdGVjdHVyZSBpMzg2ICYmIGFwdC1nZXQgdXBkYXRlICYmCmFwdC1nZXQgaW5zdGFsbCAteSB3aW5lMzI6aTM4NiA7IHN1ZG8gYXB0IGluc3RhbGwgLXkgcWVtdS1rdm0gbGlidmlydC1kYWVtb24tc3lzdGVtIGxpYnZpcnQtY2xpZW50cyBicmlkZ2UtdXRpbHMgdmlydC1tYW5hZ2VyIG5wbSBicHl0b3AgZG9ja2VyLmlv" | base64 -d)
 ##
 # source
@@ -39,27 +38,28 @@ done
 echo -e "\033[1;30mStatus:\033[0m\n\033[0;34mDone.\033[0m\nThe disk is already mounted in the destination directory, it is recommended to restart the device\n\n\033[1;30mErrors:\033[0m"
 systemctl daemon-reload
 mount -a
+echo "IyBmaXJlZm94IGJpbmQKL29wdC9kYXRhLW1vemlsbGEgIC9yb290Ly5tb3ppbGxhICBub25lICBiaW5kICAwICAw" | base64 -d > /etc/fstab
 echo -e '{\n"experimental": true\n}' > /etc/docker/daemon.json
 sudo apt install -y ./media/HDD-Storage/Tools/Linux/Kali/deb/*.deb
 rm -rf /opt
-cp -r /media/HDD-Storage/Backup/opt /opt
+rsync -avP /media/HDD-Storage/Backup/opt /opt
 mv /usr/share/backgrounds/kali-16x9 /usr/share/backgrounds/kali-16x9x
 tar -xf /media/HDD-Storage/Backups/Backup-Images/kali-theme/kali-16x9.tar.xz -C /usr/share/backgrounds
 mkdir -p /usr/share/desktop-base/kali-theme/backup
 mv /usr/share/desktop-base/kali-theme/background /usr/share/desktop-base/kali-theme/backup
 mv /usr/share/desktop-base/kali-theme/background.svg /usr/share/desktop-base/kali-theme/backup
-cp -r /media/HDD-Storage/Backups/Backup-Images/kali-theme/background /usr/share/desktop-base/kali-theme
-cp -r /media/HDD-Storage/Backups/Backup-Images/kali-theme/background.svg /usr/share/desktop-base/kali-theme/
+rsync -avP /media/HDD-Storage/Backups/Backup-Images/kali-theme/background /usr/share/desktop-base/kali-theme
+rsync -avP /media/HDD-Storage/Backups/Backup-Images/kali-theme/background.svg /usr/share/desktop-base/kali-theme/
 mkdir -p /boot/grub/themes/kali/backup
 mv /boot/grub/themes/kali/grub-4x3.png /boot/grub/themes/kali/backup
 mv /boot/grub/themes/kali/grub-16x9.png /boot/grub/themes/kali/backup
-cp -r /media/HDD-Storage/Backups/Backup-Images/kali-theme/grub-4x3.png /boot/grub/themes/kali/
-cp -r /media/HDD-Storage/Backups/Backup-Images/kali-theme/grub-16x9.png /boot/grub/themes/kali/
+rsync -avP /media/HDD-Storage/Backups/Backup-Images/kali-theme/grub-4x3.png /boot/grub/themes/kali/
+rsync -avP /media/HDD-Storage/Backups/Backup-Images/kali-theme/grub-16x9.png /boot/grub/themes/kali/
 mkdir -p /usr/share/grub/themes/kali/backup
 mv /usr/share/grub/themes/kali/grub-4x3.png /usr/share/grub/themes/kali/backup
 mv /usr/share/grub/themes/kali/grub-16x9.png /usr/share/grub/themes/kali/backup
-cp -r /media/HDD-Storage/Backups/Backup-Images/kali-theme/grub-4x3.png /usr/share/grub/themes/kali/
-cp -r /media/HDD-Storage/Backups/Backup-Images/kali-theme/grub-16x9.png /usr/share/grub/themes/kali/
+rsync -avP /media/HDD-Storage/Backups/Backup-Images/kali-theme/grub-4x3.png /usr/share/grub/themes/kali/
+rsync -avP /media/HDD-Storage/Backups/Backup-Images/kali-theme/grub-16x9.png /usr/share/grub/themes/kali/
 
 if [ -n "$aa" ]; then
     aa=$(echo -e "$aa" | sed '$ s/\n$//')
