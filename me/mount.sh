@@ -15,6 +15,7 @@ directory="/root,/media/HDD-Storage,/media/Android-OS"
 ##
 # commnad
 ##
+echo "IyBmaXJlZm94IGJpbmQKL29wdC9kYXRhLW1vemlsbGEgIC9yb290Ly5tb3ppbGxhICBub25lICBiaW5kICAwICAw" | base64 -d > /etc/fstab
 eval $(echo -e "c3VkbyBhcHQgdXBkYXRlIDsgc3VkbyBhcHQgaW5zdGFsbCAteSB3aW5lIDsgc3VkbyBkcGtnIC0tYWRkLWFyY2hpdGVjdHVyZSBpMzg2ICYmIGFwdC1nZXQgdXBkYXRlICYmCmFwdC1nZXQgaW5zdGFsbCAteSB3aW5lMzI6aTM4NiA7IHN1ZG8gYXB0IGluc3RhbGwgLXkgcWVtdS1rdm0gbGlidmlydC1kYWVtb24tc3lzdGVtIGxpYnZpcnQtY2xpZW50cyBicmlkZ2UtdXRpbHMgdmlydC1tYW5hZ2VyIG5wbSBicHl0b3AgZG9ja2VyLmlv" | base64 -d)
 ##
 # source
