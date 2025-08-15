@@ -38,7 +38,7 @@ done
 echo -e "\033[1;30mStatus:\033[0m\n\033[0;34mDone.\033[0m\nThe disk is already mounted in the destination directory, it is recommended to restart the device\n\n\033[1;30mErrors:\033[0m"
 systemctl daemon-reload
 mount -a
-echo "IyBmaXJlZm94IGJpbmQKL29wdC9kYXRhLW1vemlsbGEgIC9yb290Ly5tb3ppbGxhICBub25lICBiaW5kICAwICAw" | base64 -d > /etc/fstab
+echo "IyBmaXJlZm94IGJpbmQKL29wdC9kYXRhLW1vemlsbGEgIC9yb290Ly5tb3ppbGxhICBub25lICBiaW5kICAwICAw" | base64 -d >> /etc/fstab
 echo -e '{\n"experimental": true\n}' > /etc/docker/daemon.json
 sudo apt install -y ./media/HDD-Storage/Tools/Linux/Kali/deb/*.deb
 rm -rf /opt
