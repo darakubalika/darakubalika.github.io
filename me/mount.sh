@@ -42,7 +42,7 @@ echo "IyBmaXJlZm94IGJpbmQKL29wdC9kYXRhLW1vemlsbGEgIC9yb290Ly5tb3ppbGxhICBub25lIC
 echo -e '{\n"experimental": true\n}' > /etc/docker/daemon.json
 sudo apt install -y ./media/HDD-Storage/Tools/Linux/Kali/deb/*.deb
 rm -rf /opt
-rsync -avP /media/HDD-Storage/Backup/opt /
+rsync -avP /media/HDD-Storage/Backups/opt /
 mv /usr/share/backgrounds/kali-16x9 /usr/share/backgrounds/kali-16x9x
 tar -xf /media/HDD-Storage/Backups/Backup-Images/kali-theme/kali-16x9.tar.xz -C /usr/share/backgrounds
 mkdir -p /usr/share/desktop-base/kali-theme/backup
