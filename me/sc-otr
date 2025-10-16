@@ -600,7 +600,7 @@ function mainMenu()
 
     if menu==1 then farmhay()
     elseif menu==2 then nitroRepair()
-    elseif menu==3 then spdcr()
+    elseif menu==3 then spd()
     elseif menu==4 then levelMenu() 
     elseif menu==5 then os.exit()
     end
