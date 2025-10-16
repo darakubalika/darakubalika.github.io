@@ -76,11 +76,16 @@ local vlu = {
 
 local off = {
     spd = {
-        {0x14, gg.TYPE_FLOAT, 2147483620.0},  
-        {0x1C, gg.TYPE_FLOAT, 2147483620.0},
-        {0x3C, gg.TYPE_DWORD, 65535},
-        {0x44, gg.TYPE_DWORD, 65535},
+        {0x14, gg.TYPE_FLOAT, 2e22},
+        {0x18, gg.TYPE_FLOAT, 2e22},
+        {0x1C, gg.TYPE_FLOAT, 2e22},
+        {0x20, gg.TYPE_FLOAT, 2e22}
+        {0x3C, gg.TYPE_DWORD, 99999},
+        {0x40, gg.TYPE_DWORD, 99999},
+        {0x44, gg.TYPE_DWORD, 99999},
+        {0x48, gg.TYPE_DWORD, 99999},
         {0x6C, gg.TYPE_FLOAT, 4.8},
+        {0x70, gg.TYPE_FLOAT, 4.8},
         {0x74, gg.TYPE_FLOAT, 5.0}, 
     }
 }
