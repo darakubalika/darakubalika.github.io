@@ -76,8 +76,8 @@ local vlu = {
 
 local off = {
     spd = {
-        {0x14, gg.TYPE_FLOAT, 2e22},
-        {0x1C, gg.TYPE_FLOAT, 2e22},
+        {0x14, gg.TYPE_FLOAT, 9999999},
+        {0x1C, gg.TYPE_FLOAT, 9999999},
         {0x3C, gg.TYPE_DWORD, 99999},
         {0x44, gg.TYPE_DWORD, 99999},
         {0x6C, gg.TYPE_FLOAT, 4.5},
