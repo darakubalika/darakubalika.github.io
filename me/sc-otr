@@ -76,14 +76,14 @@ local m1 = {  -- pattern untuk tiap mobil
 
 local pd = {  
     spd = {
-        {0x14, gg.TYPE_FLOAT, 3e33},
-        {0x18, gg.TYPE_FLOAT, 3e33},
-        {0x1C, gg.TYPE_FLOAT, 3e33},
-        {0x20, gg.TYPE_FLOAT, 3e33},
-        {0x3C, gg.TYPE_DWORD, 99999},
-        {0x40, gg.TYPE_DWORD, 99999},
-        {0x44, gg.TYPE_DWORD, 99999},
-        {0x48, gg.TYPE_DWORD, 99999},
+        {0x14, gg.TYPE_FLOAT, 2147483648.0},
+        {0x18, gg.TYPE_FLOAT, 2147483648.0},
+        {0x1C, gg.TYPE_FLOAT, 2147483648.0},
+        {0x20, gg.TYPE_FLOAT, 2147483648.0},
+        {0x3C, gg.TYPE_DWORD, 65535},
+        {0x40, gg.TYPE_DWORD, 65535},
+        {0x44, gg.TYPE_DWORD, 65535},
+        {0x48, gg.TYPE_DWORD, 65535},
         {0x6C, gg.TYPE_FLOAT, 4.8},
         {0x70, gg.TYPE_FLOAT, 4.8},
         {0x74, gg.TYPE_FLOAT, 5.0},
