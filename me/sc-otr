@@ -1,1 +1,618 @@
-ZnVuY3Rpb24gZmFybWhheSgpCiAgICBsb2NhbCBjb25maXJtID0gZ2cuYWxlcnQoIuKaoO+4jyBXQVJOSU5HXG5cbmFyZSB5b3Ugc3VyZSB5b3Ugd2FudCB0byBhY3RpdmF0ZSBmYXJtIGhheSBjb2luIGhhY2siLCAiWWVzIiwgIk5vIikKICAgIGlmIGNvbmZpcm0gfj0gMSB0aGVuCiAgICAgICAgZ2cudG9hc3QoIkNhbmNlbGxlZCIpCiAgICAgICAgcmV0dXJuCiAgICBlbmQKICAgIGdnLmNsZWFyUmVzdWx0cygpCiAgICBnZy5zZXRSYW5nZXMoZ2cuUkVHSU9OX0NfQUxMT0MpCiAgICBnZy5zZWFyY2hOdW1iZXIoIjI7MjE0NzQ4MzY0NzsxNDk3NDUwNTAyOjo5IiwgZ2cuVFlQRV9EV09SRCkKICAgIGdnLnJlZmluZU51bWJlcigiMiIsIGdnLlRZUEVfRFdPUkQpCiAgICBsb2NhbCByZXN1bHRzID0gZ2cuZ2V0UmVzdWx0cyhnZy5nZXRSZXN1bHRzQ291bnQoKSkKICAgIGlmICNyZXN1bHRzID09IDAgdGhlbgogICAgICAgIGdnLnRvYXN0KCJOb3QgRm91bmQiKQogICAgICAgIHJldHVybgogICAgZW5kCiAgICBsb2NhbCBlZGl0cyA9IHt9CiAgICBmb3IgXywgciBpbiBpcGFpcnMocmVzdWx0cykgZG8KICAgICAgICB0YWJsZS5pbnNlcnQoZWRpdHMsIHthZGRyZXNzID0gci5hZGRyZXNzIC0gMHgxNCwgZmxhZ3MgPSBnZy5UWVBFX0RXT1JELCB2YWx1ZSA9IDJ9KQogICAgICAgIHRhYmxlLmluc2VydChlZGl0cywge2FkZHJlc3MgPSByLmFkZHJlc3MgKyAweEMwLCBmbGFncyA9IGdnLlRZUEVfRFdPUkQsIHZhbHVlID0gMn0pCiAgICAgICAgdGFibGUuaW5zZXJ0KGVkaXRzLCB7YWRkcmVzcyA9IHIuYWRkcmVzcyArIDB4QzQsIGZsYWdzID0gZ2cuVFlQRV9GTE9BVCwgdmFsdWUgPSAyZTIyfSkKICAgICAgICB0YWJsZS5pbnNlcnQoZWRpdHMsIHthZGRyZXNzID0gci5hZGRyZXNzICsgMHhFMCwgZmxhZ3MgPSBnZy5UWVBFX0RXT1JELCB2YWx1ZSA9IDJ9KQogICAgICAgIHRhYmxlLmluc2VydChlZGl0cywge2FkZHJlc3MgPSByLmFkZHJlc3MgKyAweEU0LCBmbGFncyA9IGdnLlRZUEVfRkxPQVQsIHZhbHVlID0gMmUyMn0pCiAgICBlbmQKICAgIGdnLnNldFZhbHVlcyhlZGl0cykKICAgIGdnLnRvYXN0KCJTdWNjZXNzIikKICAgIGdnLmNsZWFyUmVzdWx0cygpCmVuZAoKZnVuY3Rpb24gbml0cm9SZXBhaXIoKQogICAgZ2cuY2xlYXJSZXN1bHRzKCkKICAgIGdnLnNldFJhbmdlcyhnZy5SRUdJT05fQ19BTExPQykKICAgIGdnLnNlYXJjaE51bWJlcigiMjszMDo6NSIsIGdnLlRZUEVfRkxPQVQpCiAgICBsb2NhbCByZXN1bHRzID0gZ2cuZ2V0UmVzdWx0cyhnZy5nZXRSZXN1bHRzQ291bnQoKSkKICAgIGlmICNyZXN1bHRzPT0wIHRoZW4gZ2cudG9hc3QoIk5vdCBGb3VuZCIpIHJldHVybiBlbmQKICAgIGxvY2FsIGVkaXRzLCBmcmVlemVzID0ge30sIHt9CiAgICBmb3IgXywgciBpbiBpcGFpcnMocmVzdWx0cykgZG8KICAgICAgICBpZiByLnZhbHVlPT0yIG9yIHIudmFsdWU9PTMwIHRoZW4KICAgICAgICAgICAgdGFibGUuaW5zZXJ0KGVkaXRzLHthZGRyZXNzPXIuYWRkcmVzcy0weDQsZmxhZ3M9Z2cuVFlQRV9GTE9BVCx2YWx1ZT0wfSkKICAgICAgICAgICAgdGFibGUuaW5zZXJ0KGVkaXRzLHthZGRyZXNzPXIuYWRkcmVzcy0weDgsZmxhZ3M9Z2cuVFlQRV9GTE9BVCx2YWx1ZT0wfSkKICAgICAgICAgICAgdGFibGUuaW5zZXJ0KGZyZWV6ZXMse2FkZHJlc3M9ci5hZGRyZXNzLGZsYWdzPWdnLlRZUEVfRkxPQVQsdmFsdWU9MCxmcmVlemU9dHJ1ZX0pCiAgICAgICAgZW5kCiAgICBlbmQKICAgIGlmICNlZGl0cz4wIHRoZW4gZ2cuc2V0VmFsdWVzKGVkaXRzKSBlbmQKICAgIGlmICNmcmVlemVzPjAgdGhlbiBnZy5hZGRMaXN0SXRlbXMoZnJlZXplcykgZW5kCiAgICBnZy50b2FzdCgiU3VjY2VzIikKICAgIGdnLmNsZWFyUmVzdWx0cygpCmVuZAoKCmdnLmNsZWFyUmVzdWx0cygpCmdnLnNldFJhbmdlcyhnZy5SRUdJT05fQ19BTExPQykKCmxvY2FsIGNycyA9IHsKICAgICLijJYgQ2FycnkiLCAi4oyWIEZ1cnkiLCAi4oyWIFJhbmdlciIsICLijJYgS2FybWEiLCAi4oyWIFBheWJhY2siLCAi4oyWIER1c3RtYWtlciIsICLijJYgQnVnZ3kiLCAi4oyWIFN0cmluZ2VyIiwgIuKMliBTcGxpdCBmaXJlIiwKICAgICLijJYgTGlvbmhlYXJ0IiwgIuKMliBMaW9ucGF3IiwgIuKMliBNdWRiZWUiLCAi4oyWIElyb24gbWFpZGVuIiwgIuKMliBTd2VldGRyZWFtIiwgIuKMliBDYXByaWNlIiwgIuKMliBHZXBhcmQiLCAi4oyWIERlZmVuZGVyIiwKICAgICLijJYgSnVwaXRlciIsICLijJYgSW5mZXJubyIsICLijJYgTWVyY3VyeSIsICLijJYgTWVyaWRpYW4iLCAi4oyWIE5vdmFyYSIsICLijJYgUmFuZ2VyT0ciLCAi4oyWIFNvbWVyc2V0IiwgIuKMliBNb29ud2Fsa2VyIiwKICAgICLijJYgTW9vbiByb3ZlciIsICLijJYgSmF6enkiLCAi4oyWIExlZ2VuZGUiLCAi4oyWIE9ueXgiLCAi4oyWIFJhaW5ib3ciLCAi4oyWIFZ1bGNhbiIsICLijJYgSGVsbGZpcmUiLCAi4oyWIENhcmJvbnlldGkiLCAi4oyWIEdvbGRlbnlldGkiLAogICAgIuKMliBUYXVydXMiLCAi4oyWIEh1cnJpY2FuZSIsICLijJYgVHlwaG9vbiIsICLijJYgVW5pb24iLCAi4oyWIEFlb24iLCAi4oyWIEljYXJ1cyIsICLijJYgVm9sdGFnZSIsICLijJYgUGVhY2VtYWtlciIsICLijJYgQmVoZW1vdGgiLAogICAgIuKMliBFZHVjYXRvciIsICLijJYgR29saWF0aCIsICLijJYgVHVreSIsICLijJYgUnVzdHkiLCAi4oyWIFBvbyBNb2JpbGUiLCAi4oyWIE1heGltdXMiLCAi4oyWIFRodW5kZXIiLCAi4oyWIFNjaG9vbCBtYXN0ZXIiLCAi4oyWIFVyc3VzIiwgIuKMliBaZWQiLAogICAgIuKMliBGaXJldHJ1Y2siLCAi4oyWIFRpdGFuIiwgIuKMliBUaXRhbml1bSIsICLijJYgRGFzaHVuZCIsICLijJYgSGVyY3VsZXMiLCAi4oyWIEljZWJyZWFrZXIiLCAiIgp9Cgpsb2NhbCB2bHUgPSB7CiAgICAiMzI7NjQ7NDAwRDo6OSIsICI3Mjs3Mjs0MDBEOjo5IiwgIjc1OzY4Ozc1MEQ6OjEyMSIsICIyMjA7NzI7ODAwRDo6MTIxIiwgIjcyOzcyOzgwMEQ6OjkiLAogICAgIjE0MDs3MjsxMDUwRDo6MTIxIiwgIjIwMDs3MjsxMDUwRDo6MTIxIiwgIjM1OzgyOzExMDBEOjoxMjEiLCAiODg7ODg7MTEwMEQ6OjkiLCAiMTIwOzgyOzExMDBEOjoxMjEiLAogICAgIjg0Ozg0OzExMDBEOjo5IiwgIjA7NDA7NzY7MTEwMEQ6OjEzIiwgIjQyOzgwOzEyNTBEOjo5IiwgIjYwOzg0Ojo1IiwgIjQyOzgwOzEzMDBEOjo5IiwKICAgICI1NTs4OTo6NSIsICIyMjA7NzY7MTIwMEQ6OjEyMSIsICI2NTs4ODo6NSIsICI0ODs4NSIsICI2NTs4Njo6NSIsICI1NTs4Mzo6NSIsICI1Njs4Nzo6NSIsCiAgICAiMzc7NzI6OjUiLCAiMjEwOzc2OzEyMDBEOjoxMjEiLCAiMzY7Nzg6OjUiLCAiODA7ODA7MTEwMEQ6OjkiLCAiMTgwOzcyOzEwNTBEOzI6OjEzNyIsICI0Mjs4Nzo6NSIsCiAgICAiNjU7OTU6OjUiLCAiMzREOzM0RDszNjs3MiIsICIxNzA7NzY7MTIwMEQ6OjEyMSIsICI3Njs3NjsxMjAwRDo6OSIsICIxNTA7ODA7MTIwMEQ6OjEyMSIsCiAgICAiOTA7OTA7MTIwMEQ6OjkiLCAiNDA7NzI7MTIwMEQ7MS45NTo6MjUiLCAiMjAwOzgyOzExMDBEOjoxMjEiLCAiODk7ODk7NDAwRDo6OSIsICI2Njs5MDo6NSIsCiAgICAiNjA7ODY6OjUiLCAiNDA7NzY7NDUwMDBEOjo5IiwgIjQwOzc2OzFEOjoxNyIsICIxODA7ODg7MTM1MEQ6OjEyMSIsICIxODA7ODA7MTIwMEQ6OjEyMSIsCiAgICAiNDM7OTI6OjUiLCAiNDE7NzA6OjUiLCAiMjNEOzIyRDs0MDs3Mjo6NTAxIiwgIjEyMDs3MjsxMjAwRDo6MTIxIiwgIjQyOzY3Ojo1IiwgIjQxMDs4MDsxMzUwRDo6MTIxIiwKICAgICI0Mjs4NTo6NSIsICIyMTU7NzI7MTIwMEQ6OjEyMSIsICIxLjEwOzgwOzEzNTBEOzIuNTo6MTMzIiwgIjI2MDs3Mjs4MDBEOjoxMjEiLCAiNTA7NzY7MTAwMEQ6OjkiLAogICAgIjQwOzg4OzE0NTBEOjo5IiwgIjc2Ozc2OzE0NTBEOjo5IiwgIjM0MDs4ODsxMzUwRDo6MTIxIiwgIjUwOzcwOzE1NTBEOjo5IiwgIjYyOzc0Ojo1Igp9Cgpsb2NhbCBvZmYgPSB7CiAgICBzcGQgPSB7CiAgICAgICAgezB4MTQsIGdnLlRZUEVfRkxPQVQsIDJlMjJ9LAogICAgICAgIHsweDFDLCBnZy5UWVBFX0ZMT0FULCAyZTIyfSwKICAgICAgICB7MHgzQywgZ2cuVFlQRV9EV09SRCwgOTk5OTl9LAogICAgICAgIHsweDQ0LCBnZy5UWVBFX0RXT1JELCA5OTk5OX0sCiAgICAgICAgezB4NkMsIGdnLlRZUEVfRkxPQVQsIDQuNX0sCiAgICAgICAgezB4NzQsIGdnLlRZUEVfRkxPQVQsIDUuMH0sIAogICAgfQp9CmxvY2FsIGZ1bmN0aW9uIGFwcGx5X3NwZWVkX3RvX2Jhc2UoYmFzZUFkZHIsIHNwZWVkRm9yMDc0KQogICAgbG9jYWwgZWRpdHMgPSB7fQogICAgZm9yIGkgPSAxLCAjb2ZmLnNwZCBkbwogICAgICAgIGxvY2FsIG8gPSBvZmYuc3BkW2ldCiAgICAgICAgbG9jYWwgYWRkciA9IGJhc2VBZGRyICsgb1sxXQogICAgICAgIGxvY2FsIGZsYWdzID0gb1syXQogICAgICAgIGxvY2FsIHZhbHVlID0gb1szXQogICAgICAgIGlmIG9bMV0gPT0gMHg3NCBhbmQgZmxhZ3MgPT0gZ2cuVFlQRV9GTE9BVCBhbmQgc3BlZWRGb3IwNzQgdGhlbgogICAgICAgICAgICB2YWx1ZSA9IHNwZWVkRm9yMDc0CiAgICAgICAgZW5kCiAgICAgICAgdGFibGUuaW5zZXJ0KGVkaXRzLCB7IGFkZHJlc3MgPSBhZGRyLCBmbGFncyA9IGZsYWdzLCB2YWx1ZSA9IHZhbHVlIH0pCiAgICBlbmQKICAgIGdnLnNldFZhbHVlcyhlZGl0cykKZW5kCmxvY2FsIGZ1bmN0aW9uIGZpbmRfYmFzZV9ieV9wYXR0ZXJuKGlkeCkKICAgIGxvY2FsIHBhdCA9IHZsdVtpZHhdCiAgICBpZiBub3QgcGF0IHRoZW4gcmV0dXJuIG5pbCBlbmQKCiAgICBnZy5jbGVhclJlc3VsdHMoKQogICAgZ2cuc2VhcmNoTnVtYmVyKHBhdCwgZ2cuVFlQRV9GTE9BVCkKICAgIGxvY2FsIHJlc3VsdHMgPSBnZy5nZXRSZXN1bHRzKDIpCiAgICBpZiAjcmVzdWx0cyA9PSAwIHRoZW4KICAgICAgICBnZy5jbGVhclJlc3VsdHMoKQogICAgICAgIHJldHVybiBuaWwKICAgIGVuZAogICAgbG9jYWwgY2hvc2VuID0gcmVzdWx0c1syXSBvciByZXN1bHRzWzFdCiAgICBsb2NhbCBiYXNlID0gY2hvc2VuLmFkZHJlc3MKICAgIGdnLmNsZWFyUmVzdWx0cygpCiAgICByZXR1cm4gYmFzZQplbmQKCmxvY2FsIGZ1bmN0aW9uIGFwcGx5X3NwZWVkX2Zvcl9pbmRleChpZHgsIHNwZWVkKQogICAgbG9jYWwgYmFzZSA9IGZpbmRfYmFzZV9ieV9wYXR0ZXJuKGlkeCkKICAgIGlmIG5vdCBiYXNlIHRoZW4KICAgICAgICBnZy5hbGVydCgiQ2FyIG5vdCBmb3VuZDogIiAuLiAoY3JzW2lkeF0gb3IgdG9zdHJpbmcoaWR4KSkpCiAgICAgICAgcmV0dXJuIGZhbHNlCiAgICBlbmQKICAgIGFwcGx5X3NwZWVkX3RvX2Jhc2UoYmFzZSwgc3BlZWQpCiAgICBnZy50b2FzdCgiU3BlZWQgIiAuLiB0b3N0cmluZyhzcGVlZCkgLi4gIiBhcHBsaWVkIHRvOiAiIC4uIChjcnNbaWR4XSBvciB0b3N0cmluZyhpZHgpKSkKICAgIHJldHVybiB0cnVlCmVuZAoKZnVuY3Rpb24gc3BkY3IoKQogICAgLS0gbWludGEgaW5wdXQgc3BlZWQgZGFyaSB1c2VyCiAgICBsb2NhbCBkZWZhdWx0U3BlZWQgPSAiNS4wIgogICAgbG9jYWwgaW5wdXQgPSBnZy5wcm9tcHQoeyJFbnRlciB0aGUgc3BlZWQgdmFsdWUgKGZsb2F0KSwgZm9yIGV4YW1wbGUgMTEuNSJ9LCB7ZGVmYXVsdFNwZWVkfSwgeyJudW1iZXIifSkKICAgIGlmIG5vdCBpbnB1dCB0aGVuIHJldHVybiBlbmQKICAgIGxvY2FsIHNwZWVkVmFsID0gdG9udW1iZXIoaW5wdXRbMV0pCiAgICBpZiBub3Qgc3BlZWRWYWwgdGhlbgogICAgICAgIGdnLmFsZXJ0KCJJbnZhbGlkIHZhbHVlLiBFbnRlciBhIGRlY2ltYWwgbnVtYmVyIChleGFtcGxlOiAxMS41KS4iKQogICAgICAgIHJldHVybgogICAgZW5kCiAgICBsb2NhbCBjYXJzID0ge30KICAgIGZvciBpID0gMSwgI2Nycy0xIGRvCiAgICAgICAgdGFibGUuaW5zZXJ0KGNhcnMsIGNyc1tpXSkKICAgIGVuZAoKICAgIGxvY2FsIGNob2ljZXMgPSBnZy5tdWx0aUNob2ljZShjYXJzLCBuaWwsICJTZWxlY3QgY2FycyB0byBhcHBseSBzcGVlZCBoYWNrXG5TcGVlZCB1c2VkOiAiIC4uIHRvc3RyaW5nKHNwZWVkVmFsKSkKICAgIGlmIG5vdCBjaG9pY2VzIHRoZW4gcmV0dXJuIGVuZAoKICAgIGZvciBpZHgsIHNlbGVjdGVkIGluIHBhaXJzKGNob2ljZXMpIGRvCiAgICAgICAgaWYgc2VsZWN0ZWQgdGhlbgogICAgICAgICAgICBhcHBseV9zcGVlZF9mb3JfaW5kZXgoaWR4LCBzcGVlZFZhbCkKICAgICAgICBlbmQKICAgIGVuZAplbmQKCmZ1bmN0aW9uIHNldExldmVsKCkKICAgIGxvY2FsIGlucHV0ID0gZ2cucHJvbXB0KHsiRW50ZXIgTGV2ZWw6In0sIHsiIn0sIHsibnVtYmVyIn0pCiAgICBpZiBub3QgaW5wdXQgb3Igbm90IGlucHV0WzFdIG9yIGlucHV0WzFdID09ICIiIHRoZW4KICAgICAgICBnZy50b2FzdCgiRW1wdHkgaW5wdXQiKQogICAgICAgIHJldHVybgogICAgZW5kCiAgICBsb2NhbCB0YXJnZXRMdmwgPSB0b251bWJlcihpbnB1dFsxXSkKCiAgICBnZy5jbGVhclJlc3VsdHMoKQogICAgZ2cuc2V0UmFuZ2VzKGdnLlJFR0lPTl9DX0FMTE9DKQogICAgZ2cuc2VhcmNoTnVtYmVyKCItMTswOzU2MTY3MTM0ODo6NzciLCBnZy5UWVBFX0RXT1JEKQogICAgZ2cucmVmaW5lTnVtYmVyKCItMSIsIGdnLlRZUEVfRFdPUkQpCiAgICBsb2NhbCByZXNBID0gZ2cuZ2V0UmVzdWx0cyg1MDApCiAgICBsb2NhbCBiYXNlQSA9IHJlc0FbMV0gYW5kIHJlc0FbMV0uYWRkcmVzcyBvciBuaWwKICAgIGlmIG5vdCBiYXNlQSB0aGVuCiAgICAgICAgZ2cudG9hc3QoIi0xIG5vdCBmb3VuZCIpCiAgICAgICAgcmV0dXJuCiAgICBlbmQKCiAgICBsb2NhbCBhZGRyQ29pbiAgPSBiYXNlQSArIDB4MzAKICAgIGxvY2FsIGFkZHJMdmwgICA9IGJhc2VBICsgMHgxQjgKICAgIGxvY2FsIGFkZHJNYXhYUCA9IGJhc2VBICsgMHgxMzgKCiAgICBnZy5zZXRWYWx1ZXMoe3thZGRyZXNzID0gYWRkck1heFhQLCBmbGFncyA9IGdnLlRZUEVfRFdPUkQsIHZhbHVlID0gOTk5OTk5OX19KQogICAgZ2cudG9hc3QoIk1heCBYUCBzZXQgdG8gOSw5OTksOTk5IikKCiAgICBnZy5jbGVhclJlc3VsdHMoKQogICAgZ2cuc2V0UmFuZ2VzKGdnLlJFR0lPTl9DX0FMTE9DKQogICAgZ2cuc2VhcmNoTnVtYmVyKCIxMDAwOzI0OzI0OzU6MTI4IiwgZ2cuVFlQRV9GTE9BVCkKICAgIGxvY2FsIHJlc0IgPSBnZy5nZXRSZXN1bHRzKDUwMCkKICAgIGxvY2FsIGJhc2VCCiAgICBmb3IgXywgciBpbiBpcGFpcnMocmVzQikgZG8KICAgICAgICBpZiBtYXRoLmZsb29yKHIudmFsdWUpID09IDUgdGhlbgogICAgICAgICAgICBiYXNlQiA9IHIuYWRkcmVzcwogICAgICAgICAgICBicmVhawogICAgICAgIGVuZAogICAgZW5kCiAgICBpZiBub3QgYmFzZUIgdGhlbgogICAgICAgIGdnLnRvYXN0KCJBbmNob3IgQiAoNSkgbm90IGZvdW5kIikKICAgICAgICByZXR1cm4KICAgIGVuZAogICAgbG9jYWwgYWRkckVuYyA9IGJhc2VCIC0gMHgyOTAKCiAgICBsb2NhbCB2YWwgPSB0YXJnZXRMdmwKICAgIGZvciBpID0gMSwgMyBkbwogICAgICAgIGdnLnNldFZhbHVlcyh7e2FkZHJlc3MgPSBhZGRyQ29pbiwgZmxhZ3MgPSBnZy5UWVBFX0RXT1JELCB2YWx1ZSA9IHZhbH19KQogICAgICAgIGdnLnNsZWVwKDIwMCkKICAgICAgICBsb2NhbCB0bXAgPSBnZy5nZXRWYWx1ZXMoe3thZGRyZXNzID0gYWRkckVuYywgZmxhZ3MgPSBnZy5UWVBFX0RXT1JEfX0pCiAgICAgICAgaWYgI3RtcCA9PSAwIHRoZW4KICAgICAgICAgICAgZ2cudG9hc3QoIkZhaWxlZCB0byByZWFkIEVuYyBhdCBzdGVwICIgLi4gaSkKICAgICAgICAgICAgcmV0dXJuCiAgICAgICAgZW5kCiAgICAgICAgdmFsID0gdG1wWzFdLnZhbHVlCiAgICAgICAgZ2cudG9hc3QoIlN0ZXAgIiAuLiBpIC4uICIgfCBFbmM9IiAuLiB2YWwpCiAgICBlbmQKCiAgICBnZy5zZXRWYWx1ZXMoe3thZGRyZXNzID0gYWRkckx2bCwgZmxhZ3MgPSBnZy5UWVBFX0RXT1JELCB2YWx1ZSA9IHZhbH19KQogICAgZ2cudG9hc3QoIkxldmVsIGNoYW5nZWQgdG8gIiAuLiB0YXJnZXRMdmwgLi4gIiAoRU5DOiAiIC4uIHZhbCAuLiAiKSIpCiAgICBnZy5jbGVhclJlc3VsdHMoKQplbmQKCgpmdW5jdGlvbiBzZXRYcCgpCiAgICBsb2NhbCBpbnB1dCA9IGdnLnByb21wdCh7IkVudGVyIFhQOiJ9LCB7IiJ9LCB7Im51bWJlciJ9KQogICAgaWYgbm90IGlucHV0IG9yIG5vdCBpbnB1dFsxXSBvciBpbnB1dFsxXSA9PSAiIiB0aGVuCiAgICAgICAgZ2cudG9hc3QoIkVtcHR5IGlucHV0IikKICAgICAgICByZXR1cm4KICAgIGVuZAogICAgbG9jYWwgdGFyZ2V0WHAgPSB0b251bWJlcihpbnB1dFsxXSkKCiAgICBnZy5jbGVhclJlc3VsdHMoKQogICAgZ2cuc2V0UmFuZ2VzKGdnLlJFR0lPTl9DX0FMTE9DKQogICAgZ2cuc2VhcmNoTnVtYmVyKCItMTswOzU2MTY3MTM0ODo6NzciLCBnZy5UWVBFX0RXT1JEKQogICAgZ2cucmVmaW5lTnVtYmVyKCItMSIsIGdnLlRZUEVfRFdPUkQpCiAgICBsb2NhbCByZXNBID0gZ2cuZ2V0UmVzdWx0cyg1MDApCiAgICBsb2NhbCBiYXNlQSA9IHJlc0FbMV0gYW5kIHJlc0FbMV0uYWRkcmVzcyBvciBuaWwKICAgIGlmIG5vdCBiYXNlQSB0aGVuCiAgICAgICAgZ2cudG9hc3QoIi0xIG5vdCBmb3VuZCIpCiAgICAgICAgcmV0dXJuCiAgICBlbmQKCiAgICBsb2NhbCBhZGRyQ29pbiA9IGJhc2VBICsgMHgzMAogICAgbG9jYWwgYWRkclhwICAgPSBiYXNlQSArIDB4MzQKCiAgICBnZy5jbGVhclJlc3VsdHMoKQogICAgZ2cuc2V0UmFuZ2VzKGdnLlJFR0lPTl9DX0FMTE9DKQogICAgZ2cuc2VhcmNoTnVtYmVyKCIxMDAwOzI0OzI0OzU6MTI4IiwgZ2cuVFlQRV9GTE9BVCkKICAgIGxvY2FsIHJlc0IgPSBnZy5nZXRSZXN1bHRzKDUwMCkKICAgIGxvY2FsIGJhc2VCCiAgICBmb3IgXywgciBpbiBpcGFpcnMocmVzQikgZG8KICAgICAgICBpZiBtYXRoLmZsb29yKHIudmFsdWUpID09IDUgdGhlbgogICAgICAgICAgICBiYXNlQiA9IHIuYWRkcmVzcwogICAgICAgICAgICBicmVhawogICAgICAgIGVuZAogICAgZW5kCiAgICBpZiBub3QgYmFzZUIgdGhlbgogICAgICAgIGdnLnRvYXN0KCJBbmNob3IgQiAoNSkgbm90IGZvdW5kIikKICAgICAgICByZXR1cm4KICAgIGVuZAogICAgbG9jYWwgYWRkckVuYyA9IGJhc2VCIC0gMHgyOTAKCiAgICBsb2NhbCB2YWwgPSB0YXJnZXRYcAogICAgZm9yIGkgPSAxLCAzIGRvCiAgICAgICAgZ2cuc2V0VmFsdWVzKHt7YWRkcmVzcyA9IGFkZHJDb2luLCBmbGFncyA9IGdnLlRZUEVfRFdPUkQsIHZhbHVlID0gdmFsfX0pCiAgICAgICAgZ2cuc2xlZXAoMjAwKQogICAgICAgIGxvY2FsIHRtcCA9IGdnLmdldFZhbHVlcyh7e2FkZHJlc3MgPSBhZGRyRW5jLCBmbGFncyA9IGdnLlRZUEVfRFdPUkR9fSkKICAgICAgICBpZiAjdG1wID09IDAgdGhlbgogICAgICAgICAgICBnZy50b2FzdCgiRmFpbGVkIHRvIHJlYWQgRW5jIGF0IHN0ZXAgIiAuLiBpKQogICAgICAgICAgICByZXR1cm4KICAgICAgICBlbmQKICAgICAgICB2YWwgPSB0bXBbMV0udmFsdWUKICAgICAgICBnZy50b2FzdCgiU3RlcCAiIC4uIGkgLi4gIiB8IEVuYz0iIC4uIHZhbCkKICAgIGVuZAoKICAgIGdnLnNldFZhbHVlcyh7e2FkZHJlc3MgPSBhZGRyWHAsIGZsYWdzID0gZ2cuVFlQRV9EV09SRCwgdmFsdWUgPSB2YWx9fSkKICAgIGdnLnRvYXN0KCJYUCBjaGFuZ2VkIHRvICIgLi4gdGFyZ2V0WHAgLi4gIiAoRU5DOiAiIC4uIHZhbCAuLiAiKSIpCiAgICBnZy5jbGVhclJlc3VsdHMoKQplbmQKCgpmdW5jdGlvbiBzZXRUb2tlbigpCiAgICBsb2NhbCBpbnB1dCA9IGdnLnByb21wdCh7IkVudGVyIFRva2VuOiJ9LCB7IiJ9LCB7Im51bWJlciJ9KQogICAgaWYgbm90IGlucHV0IG9yIG5vdCBpbnB1dFsxXSBvciBpbnB1dFsxXSA9PSAiIiB0aGVuCiAgICAgICAgZ2cudG9hc3QoIkVtcHR5IGlucHV0IikKICAgICAgICByZXR1cm4KICAgIGVuZAogICAgbG9jYWwgdGFyZ2V0VGtuID0gdG9udW1iZXIoaW5wdXRbMV0pCgogICAgZ2cuY2xlYXJSZXN1bHRzKCkKICAgIGdnLnNldFJhbmdlcyhnZy5SRUdJT05fQ19BTExPQykKICAgIGdnLnNlYXJjaE51bWJlcigiLTE7MDs1NjE2NzEzNDg6Ojc3IiwgZ2cuVFlQRV9EV09SRCkKICAgIGdnLnJlZmluZU51bWJlcigiLTEiLCBnZy5UWVBFX0RXT1JEKQogICAgbG9jYWwgcmVzQSA9IGdnLmdldFJlc3VsdHMoNTAwKQogICAgbG9jYWwgYmFzZUEgPSByZXNBWzFdIGFuZCByZXNBWzFdLmFkZHJlc3Mgb3IgbmlsCiAgICBpZiBub3QgYmFzZUEgdGhlbgogICAgICAgIGdnLnRvYXN0KCItMSBub3QgZm91bmQiKQogICAgICAgIHJldHVybgogICAgZW5kCiAgICBsb2NhbCBhZGRyQ29pbiA9IGJhc2VBICsgMHgzMAogICAgbG9jYWwgYWRkclRrbiAgPSBiYXNlQSArIDB4MzgKCiAgICBnZy5jbGVhclJlc3VsdHMoKQogICAgZ2cuc2V0UmFuZ2VzKGdnLlJFR0lPTl9DX0FMTE9DKQogICAgZ2cuc2VhcmNoTnVtYmVyKCIxMDAwOzI0OzI0OzU6MTI4IiwgZ2cuVFlQRV9GTE9BVCkKICAgIGxvY2FsIHJlc0IgPSBnZy5nZXRSZXN1bHRzKDUwMCkKICAgIGxvY2FsIGJhc2VCCiAgICBmb3IgXywgciBpbiBpcGFpcnMocmVzQikgZG8KICAgICAgICBpZiBtYXRoLmZsb29yKHIudmFsdWUpID09IDUgdGhlbgogICAgICAgICAgICBiYXNlQiA9IHIuYWRkcmVzcwogICAgICAgICAgICBicmVhawogICAgICAgIGVuZAogICAgZW5kCiAgICBpZiBub3QgYmFzZUIgdGhlbgogICAgICAgIGdnLnRvYXN0KCJBbmNob3IgQiAoNSkgbm90IGZvdW5kIikKICAgICAgICByZXR1cm4KICAgIGVuZAogICAgbG9jYWwgYWRkckVuYyA9IGJhc2VCIC0gMHgyOTAKCiAgICBsb2NhbCB2YWwgPSB0YXJnZXRUa24KICAgIGZvciBpID0gMSwgMyBkbwogICAgICAgIGdnLnNldFZhbHVlcyh7e2FkZHJlc3MgPSBhZGRyQ29pbiwgZmxhZ3MgPSBnZy5UWVBFX0RXT1JELCB2YWx1ZSA9IHZhbH19KQogICAgICAgIGdnLnNsZWVwKDIwMCkKICAgICAgICBsb2NhbCB0bXAgPSBnZy5nZXRWYWx1ZXMoe3thZGRyZXNzID0gYWRkckVuYywgZmxhZ3MgPSBnZy5UWVBFX0RXT1JEfX0pCiAgICAgICAgaWYgI3RtcCA9PSAwIHRoZW4KICAgICAgICAgICAgZ2cudG9hc3QoIkZhaWxlZCB0byByZWFkIEVuYyBhdCBzdGVwICIgLi4gaSkKICAgICAgICAgICAgcmV0dXJuCiAgICAgICAgZW5kCiAgICAgICAgdmFsID0gdG1wWzFdLnZhbHVlCiAgICAgICAgZ2cudG9hc3QoIlN0ZXAgIiAuLiBpIC4uICIgfCBFbmM9IiAuLiB2YWwpCiAgICBlbmQKCiAgICBnZy5zZXRWYWx1ZXMoe3thZGRyZXNzID0gYWRkclRrbiwgZmxhZ3MgPSBnZy5UWVBFX0RXT1JELCB2YWx1ZSA9IHZhbH19KQogICAgZ2cudG9hc3QoIlRva2VuIGNoYW5nZWQgdG8gIiAuLiB0YXJnZXRUa24gLi4gIiAoRU5DOiAiIC4uIHZhbCAuLiAiKSIpCiAgICBnZy5jbGVhclJlc3VsdHMoKQplbmQKCgpmdW5jdGlvbiBzZXRUaWNrZXQoKQogICAgbG9jYWwgaW5wdXQgPSBnZy5wcm9tcHQoeyJFbnRlciBUaWNrZXQ6In0sIHsiIn0sIHsibnVtYmVyIn0pCiAgICBpZiBub3QgaW5wdXQgb3Igbm90IGlucHV0WzFdIG9yIGlucHV0WzFdID09ICIiIHRoZW4KICAgICAgICBnZy50b2FzdCgiRW1wdHkgaW5wdXQiKQogICAgICAgIHJldHVybgogICAgZW5kCiAgICBsb2NhbCB0YXJnZXRUaWMgPSB0b251bWJlcihpbnB1dFsxXSkKCiAgICBnZy5jbGVhclJlc3VsdHMoKQogICAgZ2cuc2V0UmFuZ2VzKGdnLlJFR0lPTl9DX0FMTE9DKQogICAgZ2cuc2VhcmNoTnVtYmVyKCItMTswOzU2MTY3MTM0ODo6NzciLCBnZy5UWVBFX0RXT1JEKQogICAgZ2cucmVmaW5lTnVtYmVyKCItMSIsIGdnLlRZUEVfRFdPUkQpCiAgICBsb2NhbCByZXNBID0gZ2cuZ2V0UmVzdWx0cyg1MDApCiAgICBsb2NhbCBiYXNlQSA9IHJlc0FbMV0gYW5kIHJlc0FbMV0uYWRkcmVzcyBvciBuaWwKICAgIGlmIG5vdCBiYXNlQSB0aGVuCiAgICAgICAgZ2cudG9hc3QoIi0xIG5vdCBmb3VuZCIpCiAgICAgICAgcmV0dXJuCiAgICBlbmQKICAgIGxvY2FsIGFkZHJDb2luID0gYmFzZUEgKyAweDMwCiAgICBsb2NhbCBhZGRyVGljICA9IGJhc2VBICsgMHgzQwoKICAgIGdnLmNsZWFyUmVzdWx0cygpCiAgICBnZy5zZXRSYW5nZXMoZ2cuUkVHSU9OX0NfQUxMT0MpCiAgICBnZy5zZWFyY2hOdW1iZXIoIjEwMDA7MjQ7MjQ7NToxMjgiLCBnZy5UWVBFX0ZMT0FUKQogICAgbG9jYWwgcmVzQiA9IGdnLmdldFJlc3VsdHMoNTAwKQogICAgbG9jYWwgYmFzZUIKICAgIGZvciBfLCByIGluIGlwYWlycyhyZXNCKSBkbwogICAgICAgIGlmIG1hdGguZmxvb3Ioci52YWx1ZSkgPT0gNSB0aGVuCiAgICAgICAgICAgIGJhc2VCID0gci5hZGRyZXNzCiAgICAgICAgICAgIGJyZWFrCiAgICAgICAgZW5kCiAgICBlbmQKICAgIGlmIG5vdCBiYXNlQiB0aGVuCiAgICAgICAgZ2cudG9hc3QoIkFuY2hvciBCICg1KSBub3QgZm91bmQiKQogICAgICAgIHJldHVybgogICAgZW5kCiAgICBsb2NhbCBhZGRyRW5jID0gYmFzZUIgLSAweDI5MAoKICAgIGxvY2FsIHZhbCA9IHRhcmdldFRpYwogICAgZm9yIGkgPSAxLCAzIGRvCiAgICAgICAgZ2cuc2V0VmFsdWVzKHt7YWRkcmVzcyA9IGFkZHJDb2luLCBmbGFncyA9IGdnLlRZUEVfRFdPUkQsIHZhbHVlID0gdmFsfX0pCiAgICAgICAgZ2cuc2xlZXAoMjAwKQogICAgICAgIGxvY2FsIHRtcCA9IGdnLmdldFZhbHVlcyh7e2FkZHJlc3MgPSBhZGRyRW5jLCBmbGFncyA9IGdnLlRZUEVfRFdPUkR9fSkKICAgICAgICBpZiAjdG1wID09IDAgdGhlbgogICAgICAgICAgICBnZy50b2FzdCgiRmFpbGVkIHRvIHJlYWQgRW5jIGF0IHN0ZXAgIiAuLiBpKQogICAgICAgICAgICByZXR1cm4KICAgICAgICBlbmQKICAgICAgICB2YWwgPSB0bXBbMV0udmFsdWUKICAgICAgICBnZy50b2FzdCgiU3RlcCAiIC4uIGkgLi4gIiB8IEVuYz0iIC4uIHZhbCkKICAgIGVuZAoKICAgIGdnLnNldFZhbHVlcyh7e2FkZHJlc3MgPSBhZGRyVGljLCBmbGFncyA9IGdnLlRZUEVfRFdPUkQsIHZhbHVlID0gdmFsfX0pCiAgICBnZy50b2FzdCgiVGlja2V0IGNoYW5nZWQgdG8gIiAuLiB0YXJnZXRUaWMgLi4gIiAoRU5DOiAiIC4uIHZhbCAuLiAiKSIpCiAgICBnZy5jbGVhclJlc3VsdHMoKQplbmQKCgpmdW5jdGlvbiBzZXRMUigpCiAgICBsb2NhbCBpbnB1dCA9IGdnLnByb21wdCh7IkVudGVyIExSOiJ9LCB7IiJ9LCB7Im51bWJlciJ9KQogICAgaWYgbm90IGlucHV0IG9yIG5vdCBpbnB1dFsxXSBvciBpbnB1dFsxXSA9PSAiIiB0aGVuCiAgICAgICAgZ2cudG9hc3QoIkVtcHR5IGlucHV0IikKICAgICAgICByZXR1cm4KICAgIGVuZAogICAgbG9jYWwgdGFyZ2V0TFIgPSB0b251bWJlcihpbnB1dFsxXSkKCiAgICBnZy5jbGVhclJlc3VsdHMoKQogICAgZ2cuc2V0UmFuZ2VzKGdnLlJFR0lPTl9DX0FMTE9DKQogICAgZ2cuc2VhcmNoTnVtYmVyKCItMTswOzU2MTY3MTM0ODo6NzciLCBnZy5UWVBFX0RXT1JEKQogICAgZ2cucmVmaW5lTnVtYmVyKCItMSIsIGdnLlRZUEVfRFdPUkQpCiAgICBsb2NhbCByZXNBID0gZ2cuZ2V0UmVzdWx0cyg1MDApCiAgICBsb2NhbCBiYXNlQSA9IHJlc0FbMV0gYW5kIHJlc0FbMV0uYWRkcmVzcyBvciBuaWwKICAgIGlmIG5vdCBiYXNlQSB0aGVuCiAgICAgICAgZ2cudG9hc3QoIi0xIG5vdCBmb3VuZCIpCiAgICAgICAgcmV0dXJuCiAgICBlbmQKICAgIGxvY2FsIGFkZHJDb2luID0gYmFzZUEgKyAweDMwCiAgICBsb2NhbCBhZGRyTFIgICA9IGJhc2VBICsgMHg0NAoKICAgIGdnLmNsZWFyUmVzdWx0cygpCiAgICBnZy5zZXRSYW5nZXMoZ2cuUkVHSU9OX0NfQUxMT0MpCiAgICBnZy5zZWFyY2hOdW1iZXIoIjEwMDA7MjQ7MjQ7NToxMjgiLCBnZy5UWVBFX0ZMT0FUKQogICAgbG9jYWwgcmVzQiA9IGdnLmdldFJlc3VsdHMoNTAwKQogICAgbG9jYWwgYmFzZUIKICAgIGZvciBfLCByIGluIGlwYWlycyhyZXNCKSBkbwogICAgICAgIGlmIG1hdGguZmxvb3Ioci52YWx1ZSkgPT0gNSB0aGVuCiAgICAgICAgICAgIGJhc2VCID0gci5hZGRyZXNzCiAgICAgICAgICAgIGJyZWFrCiAgICAgICAgZW5kCiAgICBlbmQKICAgIGlmIG5vdCBiYXNlQiB0aGVuCiAgICAgICAgZ2cudG9hc3QoIkFuY2hvciBCICg1KSBub3QgZm91bmQiKQogICAgICAgIHJldHVybgogICAgZW5kCiAgICBsb2NhbCBhZGRyRW5jID0gYmFzZUIgLSAweDI5MAoKICAgIGxvY2FsIHZhbCA9IHRhcmdldExSCiAgICBmb3IgaSA9IDEsIDMgZG8KICAgICAgICBnZy5zZXRWYWx1ZXMoe3thZGRyZXNzID0gYWRkckNvaW4sIGZsYWdzID0gZ2cuVFlQRV9EV09SRCwgdmFsdWUgPSB2YWx9fSkKICAgICAgICBnZy5zbGVlcCgyMDApCiAgICAgICAgbG9jYWwgdG1wID0gZ2cuZ2V0VmFsdWVzKHt7YWRkcmVzcyA9IGFkZHJFbmMsIGZsYWdzID0gZ2cuVFlQRV9EV09SRH19KQogICAgICAgIGlmICN0bXAgPT0gMCB0aGVuCiAgICAgICAgICAgIGdnLnRvYXN0KCJGYWlsZWQgdG8gcmVhZCBFbmMgYXQgc3RlcCAiIC4uIGkpCiAgICAgICAgICAgIHJldHVybgogICAgICAgIGVuZAogICAgICAgIHZhbCA9IHRtcFsxXS52YWx1ZQogICAgICAgIGdnLnRvYXN0KCJTdGVwICIgLi4gaSAuLiAiIHwgRW5jPSIgLi4gdmFsKQogICAgZW5kCgogICAgZ2cuc2V0VmFsdWVzKHt7YWRkcmVzcyA9IGFkZHJMUiwgZmxhZ3MgPSBnZy5UWVBFX0RXT1JELCB2YWx1ZSA9IHZhbH19KQogICAgZ2cudG9hc3QoIkxSIGNoYW5nZWQgdG8gIiAuLiB0YXJnZXRMUiAuLiAiIChFTkM6ICIgLi4gdmFsIC4uICIpIikKICAgIGdnLmNsZWFyUmVzdWx0cygpCmVuZAoKCmZ1bmN0aW9uIHNldE5pdHJvUmVwYWlyKCkKICAgIGxvY2FsIG1heFZhbCA9IDIxNDc0ODM2MTAKCiAgICBnZy5jbGVhclJlc3VsdHMoKQogICAgZ2cuc2V0UmFuZ2VzKGdnLlJFR0lPTl9DX0FMTE9DKQogICAgZ2cuc2VhcmNoTnVtYmVyKCItMTswOzU2MTY3MTM0ODo6NzciLCBnZy5UWVBFX0RXT1JEKQogICAgZ2cucmVmaW5lTnVtYmVyKCItMSIsIGdnLlRZUEVfRFdPUkQpCiAgICBsb2NhbCByZXNBID0gZ2cuZ2V0UmVzdWx0cyg1MDApCiAgICBsb2NhbCBiYXNlQSA9IHJlc0FbMV0gYW5kIHJlc0FbMV0uYWRkcmVzcyBvciBuaWwKICAgIGlmIG5vdCBiYXNlQSB0aGVuCiAgICAgICAgZ2cudG9hc3QoIi0xIG5vdCBmb3VuZCIpCiAgICAgICAgcmV0dXJuCiAgICBlbmQKCiAgICBsb2NhbCBhZGRyTml0cm8gID0gYmFzZUEgKyAweDJDCiAgICBsb2NhbCBhZGRyUmVwYWlyID0gYmFzZUEgKyAweDI4CgogICAgZ2cuc2V0VmFsdWVzKHsKICAgICAgICB7YWRkcmVzcyA9IGFkZHJOaXRybywgZmxhZ3MgPSBnZy5UWVBFX0RXT1JELCB2YWx1ZSA9IG1heFZhbH0sCiAgICAgICAge2FkZHJlc3MgPSBhZGRyUmVwYWlyLCBmbGFncyA9IGdnLlRZUEVfRFdPUkQsIHZhbHVlID0gbWF4VmFsfQogICAgfSkKCiAgICBnZy50b2FzdCgiTml0cm8gYW5kIFJlcGFpciBzZXQgdG8gbWF4ICgiIC4uIG1heFZhbCAuLiAiKSIpCiAgICBnZy5jbGVhclJlc3VsdHMoKQplbmQKCgpmdW5jdGlvbiBzZXRBbGwoKQogICAgbG9jYWwgaW5wdXRzID0gZ2cucHJvbXB0KAogICAgICAgIHsiRW50ZXIgTGV2ZWw6IiwgIkVudGVyIFhQOiIsICJFbnRlciBUb2tlbjoiLCAiRW50ZXIgVGlja2V0OiIsICJFbnRlciBMUjoifSwKICAgICAgICB7IiIsICIiLCAiIiwgIiIsICIifSwKICAgICAgICB7Im51bWJlciIsICJudW1iZXIiLCAibnVtYmVyIiwgIm51bWJlciIsICJudW1iZXIifQogICAgKQogICAgaWYgbm90IGlucHV0cyB0aGVuCiAgICAgICAgZ2cudG9hc3QoIklucHV0IGNhbmNlbGxlZCIpCiAgICAgICAgcmV0dXJuCiAgICBlbmQKCiAgICBsb2NhbCBsZXZlbCAgPSB0b251bWJlcihpbnB1dHNbMV0pIG9yIDAKICAgIGxvY2FsIHhwICAgICA9IHRvbnVtYmVyKGlucHV0c1syXSkgb3IgMAogICAgbG9jYWwgdG9rZW4gID0gdG9udW1iZXIoaW5wdXRzWzNdKSBvciAwCiAgICBsb2NhbCB0aWNrZXQgPSB0b251bWJlcihpbnB1dHNbNF0pIG9yIDAKICAgIGxvY2FsIGxyICAgICA9IHRvbnVtYmVyKGlucHV0c1s1XSkgb3IgMAoKICAgIGxvY2FsIG5pdHJvUmVwYWlyID0gZ2cubXVsdGlDaG9pY2UoeyJTZXQgTml0cm8gJiBSZXBhaXIgdG8gTUFYIn0sIG5pbCwgIk5pdHJvICYgUmVwYWlyIE9wdGlvbiIpCgogICAgZ2cuY2xlYXJSZXN1bHRzKCkKICAgIGdnLnNldFJhbmdlcyhnZy5SRUdJT05fQ19BTExPQykKICAgIGdnLnNlYXJjaE51bWJlcigiLTE7MDs1NjE2NzEzNDg6Ojc3IiwgZ2cuVFlQRV9EV09SRCkKICAgIGdnLnJlZmluZU51bWJlcigiLTEiLCBnZy5UWVBFX0RXT1JEKQogICAgbG9jYWwgcmVzQSA9IGdnLmdldFJlc3VsdHMoNTAwKQogICAgbG9jYWwgYmFzZUEgPSByZXNBWzFdIGFuZCByZXNBWzFdLmFkZHJlc3Mgb3IgbmlsCiAgICBpZiBub3QgYmFzZUEgdGhlbgogICAgICAgIGdnLnRvYXN0KCItMSBub3QgZm91bmQiKQogICAgICAgIHJldHVybgogICAgZW5kCgogICAgZ2cuY2xlYXJSZXN1bHRzKCkKICAgIGdnLnNldFJhbmdlcyhnZy5SRUdJT05fQ19BTExPQykKICAgIGdnLnNlYXJjaE51bWJlcigiMTAwMDsyNDsyNDs1OjEyOCIsIGdnLlRZUEVfRkxPQVQpCiAgICBsb2NhbCByZXNCID0gZ2cuZ2V0UmVzdWx0cyg1MDApCiAgICBsb2NhbCBiYXNlQgogICAgZm9yIF8sIHIgaW4gaXBhaXJzKHJlc0IpIGRvCiAgICAgICAgaWYgbWF0aC5mbG9vcihyLnZhbHVlKSA9PSA1IHRoZW4KICAgICAgICAgICAgYmFzZUIgPSByLmFkZHJlc3MKICAgICAgICAgICAgYnJlYWsKICAgICAgICBlbmQKICAgIGVuZAogICAgaWYgbm90IGJhc2VCIHRoZW4KICAgICAgICBnZy50b2FzdCgiQW5jaG9yIEIgKDUpIG5vdCBmb3VuZCIpCiAgICAgICAgcmV0dXJuCiAgICBlbmQKCiAgICBsb2NhbCBhZGRyQ29pbiAgID0gYmFzZUEgKyAweDMwCiAgICBsb2NhbCBhZGRyRW5jICAgID0gYmFzZUIgLSAweDI5MAogICAgbG9jYWwgYWRkck1heFhQICA9IGJhc2VBICsgMHgxMzgKCiAgICBsb2NhbCBmdW5jdGlvbiBlbmNvZGVBbmRTZXQodmFsdWUsIG9mZnNldEZpbmFsKQogICAgICAgIGxvY2FsIHZhbCA9IHZhbHVlCiAgICAgICAgZm9yIGkgPSAxLCAzIGRvCiAgICAgICAgICAgIGdnLnNldFZhbHVlcyh7e2FkZHJlc3MgPSBhZGRyQ29pbiwgZmxhZ3MgPSBnZy5UWVBFX0RXT1JELCB2YWx1ZSA9IHZhbH19KQogICAgICAgICAgICBnZy5zbGVlcCgyMDApCiAgICAgICAgICAgIGxvY2FsIHRtcCA9IGdnLmdldFZhbHVlcyh7e2FkZHJlc3MgPSBhZGRyRW5jLCBmbGFncyA9IGdnLlRZUEVfRFdPUkR9fSkKICAgICAgICAgICAgaWYgI3RtcCA9PSAwIHRoZW4KICAgICAgICAgICAgICAgIGdnLnRvYXN0KCJGYWlsZWQgdG8gcmVhZCBFbmMgYXQgc3RlcCAiIC4uIGkpCiAgICAgICAgICAgICAgICByZXR1cm4gZmFsc2UKICAgICAgICAgICAgZW5kCiAgICAgICAgICAgIHZhbCA9IHRtcFsxXS52YWx1ZQogICAgICAgIGVuZAogICAgICAgIGxvY2FsIGFkZHJGaW5hbCA9IGJhc2VBICsgb2Zmc2V0RmluYWwKICAgICAgICBnZy5zZXRWYWx1ZXMoe3thZGRyZXNzID0gYWRkckZpbmFsLCBmbGFncyA9IGdnLlRZUEVfRFdPUkQsIHZhbHVlID0gdmFsfX0pCiAgICAgICAgcmV0dXJuIHRydWUKICAgIGVuZAoKICAgIGlmIGxldmVsID4gMCB0aGVuCiAgICAgICAgaWYgbm90IGVuY29kZUFuZFNldChsZXZlbCwgMHgxQjgpIHRoZW4gcmV0dXJuIGVuZAogICAgICAgIGdnLnNldFZhbHVlcyh7e2FkZHJlc3MgPSBhZGRyTWF4WFAsIGZsYWdzID0gZ2cuVFlQRV9EV09SRCwgdmFsdWUgPSA5OTk5OTk5fX0pCiAgICAgICAgZ2cudG9hc3QoIkxldmVsIGNoYW5nZWQgdG8gIiAuLiBsZXZlbCAuLiAiIGFuZCBNYXggWFAgc2V0IHRvIDksOTk5LDk5OSIpCiAgICBlbmQKCiAgICBpZiB4cCA+IDAgdGhlbgogICAgICAgIGlmIG5vdCBlbmNvZGVBbmRTZXQoeHAsIDB4MzQpIHRoZW4gcmV0dXJuIGVuZAogICAgICAgIGdnLnRvYXN0KCJYUCBjaGFuZ2VkIHRvICIgLi4geHApCiAgICBlbmQKCiAgICBpZiB0b2tlbiA+IDAgdGhlbgogICAgICAgIGlmIG5vdCBlbmNvZGVBbmRTZXQodG9rZW4sIDB4MzgpIHRoZW4gcmV0dXJuIGVuZAogICAgICAgIGdnLnRvYXN0KCJUb2tlbiBjaGFuZ2VkIHRvICIgLi4gdG9rZW4pCiAgICBlbmQKCiAgICBpZiB0aWNrZXQgPiAwIHRoZW4KICAgICAgICBpZiBub3QgZW5jb2RlQW5kU2V0KHRpY2tldCwgMHgzQykgdGhlbiByZXR1cm4gZW5kCiAgICAgICAgZ2cudG9hc3QoIlRpY2tldCBjaGFuZ2VkIHRvICIgLi4gdGlja2V0KQogICAgZW5kCgogICAgaWYgbHIgPiAwIHRoZW4KICAgICAgICBpZiBub3QgZW5jb2RlQW5kU2V0KGxyLCAweDQ0KSB0aGVuIHJldHVybiBlbmQKICAgICAgICBnZy50b2FzdCgiTFIgY2hhbmdlZCB0byAiIC4uIGxyKQogICAgZW5kCgogICAgaWYgbml0cm9SZXBhaXIgYW5kIG5pdHJvUmVwYWlyWzFdID09IHRydWUgdGhlbgogICAgICAgIHNldE5pdHJvUmVwYWlyKCkKICAgIGVuZAoKICAgIGdnLnRvYXN0KCJBbGwgY2hhbmdlcyBjb21wbGV0ZWQiKQogICAgZ2cuY2xlYXJSZXN1bHRzKCkKZW5kCgpmdW5jdGlvbiBsZXZlbE1lbnUoKQogICAgbG9jYWwgY29uZmlybSA9IGdnLmFsZXJ0KCLimqDvuI8gV0FSTklOR1xuXG5JZiB5b3UgdXNlIHRoaXMgc2NyaXB0LCBtYWtlIHN1cmUgTk9UIHRvIGNvbGxlY3QgY29pbnMgdW50aWwgdGhlIHByb2Nlc3MgaXMgY29tcGxldGVseSBmaW5pc2hlZCEiKQogICAgaWYgY29uZmlybSB+PSAxIHRoZW4KICAgICAgICBnZy50b2FzdCgiQ2FuY2VsbGVkIikKICAgICAgICByZXR1cm4KICAgIGVuZAogICAgbG9jYWwgY2hvaWNlID0gZ2cuY2hvaWNlKHsKICAgICAgICAi4oyWIExldmVsIiwKICAgICAgICAi4oyWIFhQIiwKICAgICAgICAi4oyWIFRva2VuIiwKICAgICAgICAi4oyWIFRpY2tldCIsCiAgICAgICAgIuKMliBMUiIsCiAgICAgICAgIuKMliBOaXRybyAmIFJlcGFpciBNQVgiLAogICAgICAgICLijJYgU2V0IEFsbCIsCiAgICAgICAgIkJhY2siCiAgICB9LCBuaWwsICJJbnZlbnRvcnkgRWRpdG9yIikKICAgIGlmIGNob2ljZSA9PSAxIHRoZW4gc2V0TGV2ZWwoKSBlbmQKICAgIGlmIGNob2ljZSA9PSAyIHRoZW4gc2V0WHAoKSBlbmQKICAgIGlmIGNob2ljZSA9PSAzIHRoZW4gc2V0VGtuKCkgZW5kCiAgICBpZiBjaG9pY2UgPT0gNCB0aGVuIHNldFRpYygpIGVuZAogICAgaWYgY2hvaWNlID09IDUgdGhlbiBzZXRMUigpIGVuZAogICAgaWYgY2hvaWNlID09IDYgdGhlbiBzZXROaXRyb1JlcGFpcigpIGVuZAogICAgaWYgY2hvaWNlID09IDcgdGhlbiBzZXRBbGwoKSBlbmQKZW5kCgpmdW5jdGlvbiBtYWluTWVudSgpCiAgICBsb2NhbCBtZW51PWdnLmNob2ljZSh7CiAgICAgICAgIuKetO+4jyBGYXJtIEhheSBDb2luIiwKICAgICAgICAi4p60IFVubGltaXRlZCBOaXRybyArIFJlcGFpciIsCiAgICAgICAgIuKetCBTcGVlZCBDYXIiLAogICAgICAgICLinrQgSW52ZW50b3J5IEVkaXRvciIsCiAgICAgICAgIkV4aXQiCiAgICB9LG5pbCwiTWVudSIpCgogICAgaWYgbWVudT09MSB0aGVuIGZhcm1oYXkoKQogICAgZWxzZWlmIG1lbnU9PTIgdGhlbiBuaXRyb1JlcGFpcigpCiAgICBlbHNlaWYgbWVudT09MyB0aGVuIHNwZGNyKCkKICAgIGVsc2VpZiBtZW51PT00IHRoZW4gbGV2ZWxNZW51KCkgCiAgICBlbHNlaWYgbWVudT09NSB0aGVuIG9zLmV4aXQoKQogICAgZW5kCmVuZAoKd2hpbGUgdHJ1ZSBkbwogICAgaWYgZ2cuaXNWaXNpYmxlKHRydWUpIHRoZW4gZ2cuc2V0VmlzaWJsZShmYWxzZSkgbWFpbk1lbnUoKSBlbmQKICAgIGdnLnNsZWVwKDEpCmVuZA==
+function farmhay()
+    local confirm = gg.alert("⚠️ WARNING\n\nare you sure you want to activate farm hay coin hack", "Yes", "No")
+    if confirm ~= 1 then
+        gg.toast("Cancelled")
+        return
+    end
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("2;2147483647;1497450502::9", gg.TYPE_DWORD)
+    gg.refineNumber("2", gg.TYPE_DWORD)
+    local results = gg.getResults(gg.getResultsCount())
+    if #results == 0 then
+        gg.toast("Not Found")
+        return
+    end
+    local edits = {}
+    for _, r in ipairs(results) do
+        table.insert(edits, {address = r.address - 0x14, flags = gg.TYPE_DWORD, value = 2})
+        table.insert(edits, {address = r.address + 0xC0, flags = gg.TYPE_DWORD, value = 2})
+        table.insert(edits, {address = r.address + 0xC4, flags = gg.TYPE_FLOAT, value = 2e22})
+        table.insert(edits, {address = r.address + 0xE0, flags = gg.TYPE_DWORD, value = 2})
+        table.insert(edits, {address = r.address + 0xE4, flags = gg.TYPE_FLOAT, value = 2e22})
+    end
+    gg.setValues(edits)
+    gg.toast("Success")
+    gg.clearResults()
+end
+
+function nitroRepair()
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("2;30::5", gg.TYPE_FLOAT)
+    local results = gg.getResults(gg.getResultsCount())
+    if #results==0 then gg.toast("Not Found") return end
+    local edits, freezes = {}, {}
+    for _, r in ipairs(results) do
+        if r.value==2 or r.value==30 then
+            table.insert(edits,{address=r.address-0x4,flags=gg.TYPE_FLOAT,value=0})
+            table.insert(edits,{address=r.address-0x8,flags=gg.TYPE_FLOAT,value=0})
+            table.insert(freezes,{address=r.address,flags=gg.TYPE_FLOAT,value=0,freeze=true})
+        end
+    end
+    if #edits>0 then gg.setValues(edits) end
+    if #freezes>0 then gg.addListItems(freezes) end
+    gg.toast("Succes")
+    gg.clearResults()
+end
+
+
+gg.clearResults()
+gg.setRanges(gg.REGION_C_ALLOC)
+
+local crs = {
+    "⌖ Carry", "⌖ Fury", "⌖ Ranger", "⌖ Karma", "⌖ Payback", "⌖ Dustmaker", "⌖ Buggy", "⌖ Stringer", "⌖ Split fire",
+    "⌖ Lionheart", "⌖ Lionpaw", "⌖ Mudbee", "⌖ Iron maiden", "⌖ Sweetdream", "⌖ Caprice", "⌖ Gepard", "⌖ Defender",
+    "⌖ Jupiter", "⌖ Inferno", "⌖ Mercury", "⌖ Meridian", "⌖ Novara", "⌖ RangerOG", "⌖ Somerset", "⌖ Moonwalker",
+    "⌖ Moon rover", "⌖ Jazzy", "⌖ Legende", "⌖ Onyx", "⌖ Rainbow", "⌖ Vulcan", "⌖ Hellfire", "⌖ Carbonyeti", "⌖ Goldenyeti",
+    "⌖ Taurus", "⌖ Hurricane", "⌖ Typhoon", "⌖ Union", "⌖ Aeon", "⌖ Icarus", "⌖ Voltage", "⌖ Peacemaker", "⌖ Behemoth",
+    "⌖ Educator", "⌖ Goliath", "⌖ Tuky", "⌖ Rusty", "⌖ Poo Mobile", "⌖ Maximus", "⌖ Thunder", "⌖ School master", "⌖ Ursus", "⌖ Zed",
+    "⌖ Firetruck", "⌖ Titan", "⌖ Titanium", "⌖ Dashund", "⌖ Hercules", "⌖ Icebreaker", ""
+}
+
+local vlu = {
+    "32;64;400D::9", "72;72;400D::9", "75;68;750D::121", "220;72;800D::121", "72;72;800D::9",
+    "140;72;1050D::121", "200;72;1050D::121", "35;82;1100D::121", "88;88;1100D::9", "120;82;1100D::121",
+    "84;84;1100D::9", "0;40;76;1100D::13", "42;80;1250D::9", "60;84::5", "42;80;1300D::9",
+    "55;89::5", "220;76;1200D::121", "65;88::5", "48;85", "65;86::5", "55;83::5", "56;87::5",
+    "37;72::5", "210;76;1200D::121", "36;78::5", "80;80;1100D::9", "180;72;1050D;2::137", "42;87::5",
+    "65;95::5", "34D;34D;36;72", "170;76;1200D::121", "76;76;1200D::9", "150;80;1200D::121",
+    "90;90;1200D::9", "40;72;1200D;1.95::25", "200;82;1100D::121", "89;89;400D::9", "66;90::5",
+    "60;86::5", "40;76;45000D::9", "40;76;1D::17", "180;88;1350D::121", "180;80;1200D::121",
+    "43;92::5", "41;70::5", "23D;22D;40;72::501", "120;72;1200D::121", "42;67::5", "410;80;1350D::121",
+    "42;85::5", "215;72;1200D::121", "1.10;80;1350D;2.5::133", "260;72;800D::121", "50;76;1000D::9",
+    "40;88;1450D::9", "76;76;1450D::9", "340;88;1350D::121", "50;70;1550D::9", "62;74::5"
+}
+
+local off = {
+    spd = {
+        {0x14, gg.TYPE_FLOAT, 2e22},
+        {0x1C, gg.TYPE_FLOAT, 2e22},
+        {0x3C, gg.TYPE_DWORD, 99999},
+        {0x44, gg.TYPE_DWORD, 99999},
+        {0x6C, gg.TYPE_FLOAT, 4.5},
+        {0x74, gg.TYPE_FLOAT, 5.0}, 
+    }
+}
+local function apply_speed_to_base(baseAddr, speedFor074)
+    local edits = {}
+    for i = 1, #off.spd do
+        local o = off.spd[i]
+        local addr = baseAddr + o[1]
+        local flags = o[2]
+        local value = o[3]
+        if o[1] == 0x74 and flags == gg.TYPE_FLOAT and speedFor074 then
+            value = speedFor074
+        end
+        table.insert(edits, { address = addr, flags = flags, value = value })
+    end
+    gg.setValues(edits)
+end
+local function find_base_by_pattern(idx)
+    local pat = vlu[idx]
+    if not pat then return nil end
+
+    gg.clearResults()
+    gg.searchNumber(pat, gg.TYPE_FLOAT)
+    local results = gg.getResults(2)
+    if #results == 0 then
+        gg.clearResults()
+        return nil
+    end
+    local chosen = results[2] or results[1]
+    local base = chosen.address
+    gg.clearResults()
+    return base
+end
+
+local function apply_speed_for_index(idx, speed)
+    local base = find_base_by_pattern(idx)
+    if not base then
+        gg.alert("Car not found: " .. (crs[idx] or tostring(idx)))
+        return false
+    end
+    apply_speed_to_base(base, speed)
+    gg.toast("Speed " .. tostring(speed) .. " applied to: " .. (crs[idx] or tostring(idx)))
+    return true
+end
+
+function spdcr()
+    -- minta input speed dari user
+    local defaultSpeed = "5.0"
+    local input = gg.prompt({"Enter the speed value (float), for example 11.5"}, {defaultSpeed}, {"number"})
+    if not input then return end
+    local speedVal = tonumber(input[1])
+    if not speedVal then
+        gg.alert("Invalid value. Enter a decimal number (example: 11.5).")
+        return
+    end
+    local cars = {}
+    for i = 1, #crs-1 do
+        table.insert(cars, crs[i])
+    end
+
+    local choices = gg.multiChoice(cars, nil, "Select cars to apply speed hack\nSpeed used: " .. tostring(speedVal))
+    if not choices then return end
+
+    for idx, selected in pairs(choices) do
+        if selected then
+            apply_speed_for_index(idx, speedVal)
+        end
+    end
+end
+
+function setLevel()
+    local input = gg.prompt({"Enter Level:"}, {""}, {"number"})
+    if not input or not input[1] or input[1] == "" then
+        gg.toast("Empty input")
+        return
+    end
+    local targetLvl = tonumber(input[1])
+
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("-1;0;561671348::77", gg.TYPE_DWORD)
+    gg.refineNumber("-1", gg.TYPE_DWORD)
+    local resA = gg.getResults(500)
+    local baseA = resA[1] and resA[1].address or nil
+    if not baseA then
+        gg.toast("-1 not found")
+        return
+    end
+
+    local addrCoin  = baseA + 0x30
+    local addrLvl   = baseA + 0x1B8
+    local addrMaxXP = baseA + 0x138
+
+    gg.setValues({{address = addrMaxXP, flags = gg.TYPE_DWORD, value = 9999999}})
+    gg.toast("Max XP set to 9,999,999")
+
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("1000;24;24;5:128", gg.TYPE_FLOAT)
+    local resB = gg.getResults(500)
+    local baseB
+    for _, r in ipairs(resB) do
+        if math.floor(r.value) == 5 then
+            baseB = r.address
+            break
+        end
+    end
+    if not baseB then
+        gg.toast("Anchor B (5) not found")
+        return
+    end
+    local addrEnc = baseB - 0x290
+
+    local val = targetLvl
+    for i = 1, 3 do
+        gg.setValues({{address = addrCoin, flags = gg.TYPE_DWORD, value = val}})
+        gg.sleep(200)
+        local tmp = gg.getValues({{address = addrEnc, flags = gg.TYPE_DWORD}})
+        if #tmp == 0 then
+            gg.toast("Failed to read Enc at step " .. i)
+            return
+        end
+        val = tmp[1].value
+        gg.toast("Step " .. i .. " | Enc=" .. val)
+    end
+
+    gg.setValues({{address = addrLvl, flags = gg.TYPE_DWORD, value = val}})
+    gg.toast("Level changed to " .. targetLvl .. " (ENC: " .. val .. ")")
+    gg.clearResults()
+end
+
+
+function setXp()
+    local input = gg.prompt({"Enter XP:"}, {""}, {"number"})
+    if not input or not input[1] or input[1] == "" then
+        gg.toast("Empty input")
+        return
+    end
+    local targetXp = tonumber(input[1])
+
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("-1;0;561671348::77", gg.TYPE_DWORD)
+    gg.refineNumber("-1", gg.TYPE_DWORD)
+    local resA = gg.getResults(500)
+    local baseA = resA[1] and resA[1].address or nil
+    if not baseA then
+        gg.toast("-1 not found")
+        return
+    end
+
+    local addrCoin = baseA + 0x30
+    local addrXp   = baseA + 0x34
+
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("1000;24;24;5:128", gg.TYPE_FLOAT)
+    local resB = gg.getResults(500)
+    local baseB
+    for _, r in ipairs(resB) do
+        if math.floor(r.value) == 5 then
+            baseB = r.address
+            break
+        end
+    end
+    if not baseB then
+        gg.toast("Anchor B (5) not found")
+        return
+    end
+    local addrEnc = baseB - 0x290
+
+    local val = targetXp
+    for i = 1, 3 do
+        gg.setValues({{address = addrCoin, flags = gg.TYPE_DWORD, value = val}})
+        gg.sleep(200)
+        local tmp = gg.getValues({{address = addrEnc, flags = gg.TYPE_DWORD}})
+        if #tmp == 0 then
+            gg.toast("Failed to read Enc at step " .. i)
+            return
+        end
+        val = tmp[1].value
+        gg.toast("Step " .. i .. " | Enc=" .. val)
+    end
+
+    gg.setValues({{address = addrXp, flags = gg.TYPE_DWORD, value = val}})
+    gg.toast("XP changed to " .. targetXp .. " (ENC: " .. val .. ")")
+    gg.clearResults()
+end
+
+
+function setToken()
+    local input = gg.prompt({"Enter Token:"}, {""}, {"number"})
+    if not input or not input[1] or input[1] == "" then
+        gg.toast("Empty input")
+        return
+    end
+    local targetTkn = tonumber(input[1])
+
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("-1;0;561671348::77", gg.TYPE_DWORD)
+    gg.refineNumber("-1", gg.TYPE_DWORD)
+    local resA = gg.getResults(500)
+    local baseA = resA[1] and resA[1].address or nil
+    if not baseA then
+        gg.toast("-1 not found")
+        return
+    end
+    local addrCoin = baseA + 0x30
+    local addrTkn  = baseA + 0x38
+
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("1000;24;24;5:128", gg.TYPE_FLOAT)
+    local resB = gg.getResults(500)
+    local baseB
+    for _, r in ipairs(resB) do
+        if math.floor(r.value) == 5 then
+            baseB = r.address
+            break
+        end
+    end
+    if not baseB then
+        gg.toast("Anchor B (5) not found")
+        return
+    end
+    local addrEnc = baseB - 0x290
+
+    local val = targetTkn
+    for i = 1, 3 do
+        gg.setValues({{address = addrCoin, flags = gg.TYPE_DWORD, value = val}})
+        gg.sleep(200)
+        local tmp = gg.getValues({{address = addrEnc, flags = gg.TYPE_DWORD}})
+        if #tmp == 0 then
+            gg.toast("Failed to read Enc at step " .. i)
+            return
+        end
+        val = tmp[1].value
+        gg.toast("Step " .. i .. " | Enc=" .. val)
+    end
+
+    gg.setValues({{address = addrTkn, flags = gg.TYPE_DWORD, value = val}})
+    gg.toast("Token changed to " .. targetTkn .. " (ENC: " .. val .. ")")
+    gg.clearResults()
+end
+
+
+function setTicket()
+    local input = gg.prompt({"Enter Ticket:"}, {""}, {"number"})
+    if not input or not input[1] or input[1] == "" then
+        gg.toast("Empty input")
+        return
+    end
+    local targetTic = tonumber(input[1])
+
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("-1;0;561671348::77", gg.TYPE_DWORD)
+    gg.refineNumber("-1", gg.TYPE_DWORD)
+    local resA = gg.getResults(500)
+    local baseA = resA[1] and resA[1].address or nil
+    if not baseA then
+        gg.toast("-1 not found")
+        return
+    end
+    local addrCoin = baseA + 0x30
+    local addrTic  = baseA + 0x3C
+
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("1000;24;24;5:128", gg.TYPE_FLOAT)
+    local resB = gg.getResults(500)
+    local baseB
+    for _, r in ipairs(resB) do
+        if math.floor(r.value) == 5 then
+            baseB = r.address
+            break
+        end
+    end
+    if not baseB then
+        gg.toast("Anchor B (5) not found")
+        return
+    end
+    local addrEnc = baseB - 0x290
+
+    local val = targetTic
+    for i = 1, 3 do
+        gg.setValues({{address = addrCoin, flags = gg.TYPE_DWORD, value = val}})
+        gg.sleep(200)
+        local tmp = gg.getValues({{address = addrEnc, flags = gg.TYPE_DWORD}})
+        if #tmp == 0 then
+            gg.toast("Failed to read Enc at step " .. i)
+            return
+        end
+        val = tmp[1].value
+        gg.toast("Step " .. i .. " | Enc=" .. val)
+    end
+
+    gg.setValues({{address = addrTic, flags = gg.TYPE_DWORD, value = val}})
+    gg.toast("Ticket changed to " .. targetTic .. " (ENC: " .. val .. ")")
+    gg.clearResults()
+end
+
+
+function setLR()
+    local input = gg.prompt({"Enter LR:"}, {""}, {"number"})
+    if not input or not input[1] or input[1] == "" then
+        gg.toast("Empty input")
+        return
+    end
+    local targetLR = tonumber(input[1])
+
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("-1;0;561671348::77", gg.TYPE_DWORD)
+    gg.refineNumber("-1", gg.TYPE_DWORD)
+    local resA = gg.getResults(500)
+    local baseA = resA[1] and resA[1].address or nil
+    if not baseA then
+        gg.toast("-1 not found")
+        return
+    end
+    local addrCoin = baseA + 0x30
+    local addrLR   = baseA + 0x44
+
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("1000;24;24;5:128", gg.TYPE_FLOAT)
+    local resB = gg.getResults(500)
+    local baseB
+    for _, r in ipairs(resB) do
+        if math.floor(r.value) == 5 then
+            baseB = r.address
+            break
+        end
+    end
+    if not baseB then
+        gg.toast("Anchor B (5) not found")
+        return
+    end
+    local addrEnc = baseB - 0x290
+
+    local val = targetLR
+    for i = 1, 3 do
+        gg.setValues({{address = addrCoin, flags = gg.TYPE_DWORD, value = val}})
+        gg.sleep(200)
+        local tmp = gg.getValues({{address = addrEnc, flags = gg.TYPE_DWORD}})
+        if #tmp == 0 then
+            gg.toast("Failed to read Enc at step " .. i)
+            return
+        end
+        val = tmp[1].value
+        gg.toast("Step " .. i .. " | Enc=" .. val)
+    end
+
+    gg.setValues({{address = addrLR, flags = gg.TYPE_DWORD, value = val}})
+    gg.toast("LR changed to " .. targetLR .. " (ENC: " .. val .. ")")
+    gg.clearResults()
+end
+
+
+function setNitroRepair()
+    local maxVal = 2147483610
+
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("-1;0;561671348::77", gg.TYPE_DWORD)
+    gg.refineNumber("-1", gg.TYPE_DWORD)
+    local resA = gg.getResults(500)
+    local baseA = resA[1] and resA[1].address or nil
+    if not baseA then
+        gg.toast("-1 not found")
+        return
+    end
+
+    local addrNitro  = baseA + 0x2C
+    local addrRepair = baseA + 0x28
+
+    gg.setValues({
+        {address = addrNitro, flags = gg.TYPE_DWORD, value = maxVal},
+        {address = addrRepair, flags = gg.TYPE_DWORD, value = maxVal}
+    })
+
+    gg.toast("Nitro and Repair set to max (" .. maxVal .. ")")
+    gg.clearResults()
+end
+
+
+function setAll()
+    local inputs = gg.prompt(
+        {"Enter Level:", "Enter XP:", "Enter Token:", "Enter Ticket:", "Enter LR:"},
+        {"", "", "", "", ""},
+        {"number", "number", "number", "number", "number"}
+    )
+    if not inputs then
+        gg.toast("Input cancelled")
+        return
+    end
+
+    local level  = tonumber(inputs[1]) or 0
+    local xp     = tonumber(inputs[2]) or 0
+    local token  = tonumber(inputs[3]) or 0
+    local ticket = tonumber(inputs[4]) or 0
+    local lr     = tonumber(inputs[5]) or 0
+
+    local nitroRepair = gg.multiChoice({"Set Nitro & Repair to MAX"}, nil, "Nitro & Repair Option")
+
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("-1;0;561671348::77", gg.TYPE_DWORD)
+    gg.refineNumber("-1", gg.TYPE_DWORD)
+    local resA = gg.getResults(500)
+    local baseA = resA[1] and resA[1].address or nil
+    if not baseA then
+        gg.toast("-1 not found")
+        return
+    end
+
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("1000;24;24;5:128", gg.TYPE_FLOAT)
+    local resB = gg.getResults(500)
+    local baseB
+    for _, r in ipairs(resB) do
+        if math.floor(r.value) == 5 then
+            baseB = r.address
+            break
+        end
+    end
+    if not baseB then
+        gg.toast("Anchor B (5) not found")
+        return
+    end
+
+    local addrCoin   = baseA + 0x30
+    local addrEnc    = baseB - 0x290
+    local addrMaxXP  = baseA + 0x138
+
+    local function encodeAndSet(value, offsetFinal)
+        local val = value
+        for i = 1, 3 do
+            gg.setValues({{address = addrCoin, flags = gg.TYPE_DWORD, value = val}})
+            gg.sleep(200)
+            local tmp = gg.getValues({{address = addrEnc, flags = gg.TYPE_DWORD}})
+            if #tmp == 0 then
+                gg.toast("Failed to read Enc at step " .. i)
+                return false
+            end
+            val = tmp[1].value
+        end
+        local addrFinal = baseA + offsetFinal
+        gg.setValues({{address = addrFinal, flags = gg.TYPE_DWORD, value = val}})
+        return true
+    end
+
+    if level > 0 then
+        if not encodeAndSet(level, 0x1B8) then return end
+        gg.setValues({{address = addrMaxXP, flags = gg.TYPE_DWORD, value = 9999999}})
+        gg.toast("Level changed to " .. level .. " and Max XP set to 9,999,999")
+    end
+
+    if xp > 0 then
+        if not encodeAndSet(xp, 0x34) then return end
+        gg.toast("XP changed to " .. xp)
+    end
+
+    if token > 0 then
+        if not encodeAndSet(token, 0x38) then return end
+        gg.toast("Token changed to " .. token)
+    end
+
+    if ticket > 0 then
+        if not encodeAndSet(ticket, 0x3C) then return end
+        gg.toast("Ticket changed to " .. ticket)
+    end
+
+    if lr > 0 then
+        if not encodeAndSet(lr, 0x44) then return end
+        gg.toast("LR changed to " .. lr)
+    end
+
+    if nitroRepair and nitroRepair[1] == true then
+        setNitroRepair()
+    end
+
+    gg.toast("All changes completed")
+    gg.clearResults()
+end
+
+function levelMenu()
+    local confirm = gg.alert("⚠️ WARNING\n\nIf you use this script, make sure NOT to collect coins until the process is completely finished!")
+    if confirm ~= 1 then
+        gg.toast("Cancelled")
+        return
+    end
+    local choice = gg.choice({
+        "⌖ Level",
+        "⌖ XP",
+        "⌖ Token",
+        "⌖ Ticket",
+        "⌖ LR",
+        "⌖ Nitro & Repair MAX",
+        "⌖ Set All",
+        "Back"
+    }, nil, "Inventory Editor")
+    if choice == 1 then setLevel() end
+    if choice == 2 then setXp() end
+    if choice == 3 then setTkn() end
+    if choice == 4 then setTic() end
+    if choice == 5 then setLR() end
+    if choice == 6 then setNitroRepair() end
+    if choice == 7 then setAll() end
+end
+
+function mainMenu()
+    local menu=gg.choice({
+        "➴️ Farm Hay Coin",
+        "➴ Unlimited Nitro + Repair",
+        "➴ Speed Car",
+        "➴ Inventory Editor",
+        "Exit"
+    },nil,"Menu")
+
+    if menu==1 then farmhay()
+    elseif menu==2 then nitroRepair()
+    elseif menu==3 then spdcr()
+    elseif menu==4 then levelMenu() 
+    elseif menu==5 then os.exit()
+    end
+end
+
+while true do
+    if gg.isVisible(true) then gg.setVisible(false) mainMenu() end
+    gg.sleep(1)
+end
