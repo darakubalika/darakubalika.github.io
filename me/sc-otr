@@ -50,7 +50,7 @@ end
 gg.clearResults()
 gg.setRanges(gg.REGION_C_ALLOC)
 
-local crs = {
+local k2 = {  -- daftar mobil
     "⌖ Carry", "⌖ Fury", "⌖ Ranger", "⌖ Karma", "⌖ Payback", "⌖ Dustmaker", "⌖ Buggy", "⌖ Stringer", "⌖ Split fire",
     "⌖ Lionheart", "⌖ Lionpaw", "⌖ Mudbee", "⌖ Iron maiden", "⌖ Sweetdream", "⌖ Caprice", "⌖ Gepard", "⌖ Defender",
     "⌖ Jupiter", "⌖ Inferno", "⌖ Mercury", "⌖ Meridian", "⌖ Novara", "⌖ RangerOG", "⌖ Somerset", "⌖ Moonwalker",
@@ -60,7 +60,7 @@ local crs = {
     "⌖ Firetruck", "⌖ Titan", "⌖ Titanium", "⌖ Dashund", "⌖ Hercules", "⌖ Icebreaker", ""
 }
 
-local vlu = {
+local m1 = {  -- pattern untuk tiap mobil
     "32;64;400D::9", "72;72;400D::9", "75;68;750D::121", "220;72;800D::121", "72;72;800D::9",
     "140;72;1050D::121", "200;72;1050D::121", "35;82;1100D::121", "88;88;1100D::9", "120;82;1100D::121",
     "84;84;1100D::9", "0;40;76;1100D::13", "42;80;1250D::9", "60;84::5", "42;80;1300D::9",
@@ -74,7 +74,7 @@ local vlu = {
     "40;88;1450D::9", "76;76;1450D::9", "340;88;1350D::121", "50;70;1550D::9", "62;74::5"
 }
 
-local off = {
+local pd = {  
     spd = {
         {0x14, gg.TYPE_FLOAT, 2e22},
         {0x18, gg.TYPE_FLOAT, 2e22},
@@ -86,75 +86,64 @@ local off = {
         {0x48, gg.TYPE_DWORD, 99999},
         {0x6C, gg.TYPE_FLOAT, 4.8},
         {0x70, gg.TYPE_FLOAT, 4.8},
-        {0x74, gg.TYPE_FLOAT, 5.0}, 
+        {0x74, gg.TYPE_FLOAT, 5.0},
+        {0x78, gg.TYPE_FLOAT, 5.0},
     }
 }
-local function apply_speed_to_base(baseAddr, speedFor074)
-    local edits = {}
-    for i = 1, #off.spd do
-        local o = off.spd[i]
-        local addr = baseAddr + o[1]
-        local flags = o[2]
-        local value = o[3]
-        if o[1] == 0x74 and flags == gg.TYPE_FLOAT and speedFor074 then
-            value = speedFor074
+
+local function jw(a, s)  
+    local e = {}
+    for i = 1, #pd.spd do
+        local o = pd.spd[i]
+        local v = o[3]
+        if (o[1] == 0x74 or o[1] == 0x78) and s then
+            v = s
         end
-        table.insert(edits, { address = addr, flags = flags, value = value })
+        table.insert(e, {address = a + o[1], flags = o[2], value = v})
     end
-    gg.setValues(edits)
-end
-local function find_base_by_pattern(idx)
-    local pat = vlu[idx]
-    if not pat then return nil end
-
-    gg.clearResults()
-    gg.searchNumber(pat, gg.TYPE_FLOAT)
-    local results = gg.getResults(2)
-    if #results == 0 then
-        gg.clearResults()
-        return nil
-    end
-    local chosen = results[2] or results[1]
-    local base = chosen.address
-    gg.clearResults()
-    return base
+    gg.setValues(e)
 end
 
-local function apply_speed_for_index(idx, speed)
-    local base = find_base_by_pattern(idx)
-    if not base then
-        gg.alert("Car not found: " .. (crs[idx] or tostring(idx)))
+local function x1(i) 
+    local p = m1[i]
+    if not p then return nil end
+    gg.clearResults()
+    gg.searchNumber(p, gg.TYPE_FLOAT)
+    local r = gg.getResults(2)
+    if #r == 0 then gg.clearResults() return nil end
+    local b = (r[2] or r[1]).address
+    gg.clearResults()
+    return b
+end
+
+local function ca(i, s) 
+    local b = x1(i)
+    if not b then
+        gg.alert("Car not found: " .. (k2[i] or tostring(i)))
         return false
     end
-    apply_speed_to_base(base, speed)
-    gg.toast("Speed " .. tostring(speed) .. " applied to: " .. (crs[idx] or tostring(idx)))
+    jw(b, s)
+    gg.toast("Speed " .. tostring(s) .. " applied to: " .. (k2[i] or tostring(i)))
     return true
 end
 
-function spdcr()
-    -- minta input speed dari user
-    local defaultSpeed = "5.0"
-    local input = gg.prompt({"Enter the speed value (float), for example 11.5"}, {defaultSpeed}, {"number"})
-    if not input then return end
-    local speedVal = tonumber(input[1])
-    if not speedVal then
-        gg.alert("Invalid value. Enter a decimal number (example: 11.5).")
-        return
-    end
-    local cars = {}
-    for i = 1, #crs-1 do
-        table.insert(cars, crs[i])
-    end
+function spd()
+    local d = "5.0"
+    local i = gg.prompt({"Enter speed value (float) e.g. 11.5"}, {d}, {"number"})
+    if not i then return end
+    local s = tonumber(i[1])
+    if not s then gg.alert("Invalid value. Example: 11.5") return end
 
-    local choices = gg.multiChoice(cars, nil, "Select cars to apply speed hack\nSpeed used: " .. tostring(speedVal))
-    if not choices then return end
+    local c = {}
+    for n = 1, #k2 - 1 do table.insert(c, k2[n]) end
+    local ch = gg.multiChoice(c, nil, "Select cars\nSpeed: " .. tostring(s))
+    if not ch then return end
 
-    for idx, selected in pairs(choices) do
-        if selected then
-            apply_speed_for_index(idx, speedVal)
-        end
+    for n, sel in pairs(ch) do
+        if sel then ca(n, s) end
     end
 end
+
 
 function setLevel()
     local input = gg.prompt({"Enter Level:"}, {""}, {"number"})
