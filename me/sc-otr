@@ -50,7 +50,7 @@ end
 gg.clearResults()
 gg.setRanges(gg.REGION_C_ALLOC)
 
-local crs = {
+local lx1 = {
     "⌖ Carry", "⌖ Fury", "⌖ Ranger", "⌖ Karma", "⌖ Payback", "⌖ Dustmaker", "⌖ Buggy", "⌖ Stringer", "⌖ Split fire",
     "⌖ Lionheart", "⌖ Lionpaw", "⌖ Mudbee", "⌖ Iron maiden", "⌖ Sweetdream", "⌖ Caprice", "⌖ Gepard", "⌖ Defender",
     "⌖ Jupiter", "⌖ Inferno", "⌖ Mercury", "⌖ Meridian", "⌖ Novara", "⌖ RangerOG", "⌖ Somerset", "⌖ Moonwalker",
@@ -60,7 +60,7 @@ local crs = {
     "⌖ Firetruck", "⌖ Titan", "⌖ Titanium", "⌖ Dashund", "⌖ Hercules", "⌖ Icebreaker", ""
 }
 
-local vlu = {
+local fg7 = {
     "32;64;400D::9", "72;72;400D::9", "75;68;750D::121", "220;72;800D::121", "72;72;800D::9",
     "140;72;1050D::121", "200;72;1050D::121", "35;82;1100D::121", "88;88;1100D::9", "120;82;1100D::121",
     "84;84;1100D::9", "0;40;76;1100D::13", "42;80;1250D::9", "60;84::5", "42;80;1300D::9",
@@ -74,20 +74,20 @@ local vlu = {
     "40;88;1450D::9", "76;76;1450D::9", "340;88;1350D::121", "50;70;1550D::9", "62;74::5"
 }
 
-local off = {
-    spd = {
+local hxc = {
+    q2 = {
         {0x14, gg.TYPE_FLOAT, 2147483620.0},  
         {0x1C, gg.TYPE_FLOAT, 2147483620.0},
-        {0x3C, gg.TYPE_DWORD, 65535},
-        {0x44, gg.TYPE_DWORD, 65535},
+        {0x3C, gg.TYPE_DWORD, 99999},
+        {0x44, gg.TYPE_DWORD, 99999},
         {0x6C, gg.TYPE_FLOAT, 4.8},
         {0x74, gg.TYPE_FLOAT, 5.0}, 
     }
 }
 local function apply_speed_to_base(baseAddr, speedFor074)
     local edits = {}
-    for i = 1, #off.spd do
-        local o = off.spd[i]
+    for i = 1, #hxc.q2 do
+        local o = hxc.q2[i]
         local addr = baseAddr + o[1]
         local flags = o[2]
         local value = o[3]
@@ -99,7 +99,7 @@ local function apply_speed_to_base(baseAddr, speedFor074)
     gg.setValues(edits)
 end
 local function find_base_by_pattern(idx)
-    local pat = vlu[idx]
+    local pat = fg7[idx]
     if not pat then return nil end
 
     gg.clearResults()
@@ -115,19 +115,18 @@ local function find_base_by_pattern(idx)
     return base
 end
 
-local function apply_speed_for_index(idx, speed)
+local hyx(idx, speed)
     local base = find_base_by_pattern(idx)
     if not base then
-        gg.alert("Car not found: " .. (crs[idx] or tostring(idx)))
+        gg.alert("Car not found: " .. (lx1[idx] or tostring(idx)))
         return false
     end
     apply_speed_to_base(base, speed)
-    gg.toast("Speed " .. tostring(speed) .. " applied to: " .. (crs[idx] or tostring(idx)))
+    gg.toast("Speed " .. tostring(speed) .. " applied to: " .. (lx1[idx] or tostring(idx)))
     return true
 end
 
-function spdcr()
-    -- minta input speed dari user
+function d1()
     local defaultSpeed = "5.0"
     local input = gg.prompt({"Enter the speed value (float), for example 11.5"}, {defaultSpeed}, {"number"})
     if not input then return end
@@ -137,8 +136,8 @@ function spdcr()
         return
     end
     local cars = {}
-    for i = 1, #crs-1 do
-        table.insert(cars, crs[i])
+    for i = 1, #lx1-1 do
+        table.insert(cars, lx1[i])
     end
 
     local choices = gg.multiChoice(cars, nil, "Select cars to apply speed hack\nSpeed used: " .. tostring(speedVal))
@@ -519,7 +518,7 @@ function setAll()
     local addrEnc    = baseB - 0x290
     local addrMaxXP  = baseA + 0x138
 
-    local function encodeAndSet(value, offsetFinal)
+    local function encodeAndSet(value, hxcsetFinal)
         local val = value
         for i = 1, 3 do
             gg.setValues({{address = addrCoin, flags = gg.TYPE_DWORD, value = val}})
@@ -531,7 +530,7 @@ function setAll()
             end
             val = tmp[1].value
         end
-        local addrFinal = baseA + offsetFinal
+        local addrFinal = baseA + hxcsetFinal
         gg.setValues({{address = addrFinal, flags = gg.TYPE_DWORD, value = val}})
         return true
     end
@@ -606,7 +605,7 @@ function mainMenu()
 
     if menu==1 then farmhay()
     elseif menu==2 then nitroRepair()
-    elseif menu==3 then spdcr()
+    elseif menu==3 then q2cr()
     elseif menu==4 then levelMenu() 
     elseif menu==5 then os.exit()
     end
