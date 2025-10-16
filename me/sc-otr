@@ -17,9 +17,9 @@ function farmhay()
     for _, r in ipairs(results) do
         table.insert(edits, {address = r.address - 0x14, flags = gg.TYPE_DWORD, value = 2})
         table.insert(edits, {address = r.address + 0xC0, flags = gg.TYPE_DWORD, value = 2})
-        table.insert(edits, {address = r.address + 0xC4, flags = gg.TYPE_FLOAT, value = 2e22})
+        table.insert(edits, {address = r.address + 0xC4, flags = gg.TYPE_FLOAT, value = 3e33})
         table.insert(edits, {address = r.address + 0xE0, flags = gg.TYPE_DWORD, value = 2})
-        table.insert(edits, {address = r.address + 0xE4, flags = gg.TYPE_FLOAT, value = 2e22})
+        table.insert(edits, {address = r.address + 0xE4, flags = gg.TYPE_FLOAT, value = 3e33})
     end
     gg.setValues(edits)
     gg.toast("Success")
