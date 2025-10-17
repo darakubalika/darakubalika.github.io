@@ -564,29 +564,27 @@ function setAll()
     gg.clearResults()
 end
 
+
 function levelMenu()
-    local confirm = gg.alert("⚠️ WARNING\n\nIf you use this script, make sure NOT to collect coins until the process is completely finished!")
-    if confirm ~= 1 then
-        gg.toast("Cancelled")
-        return
-    end
+    gg.alert("⚠️ WARNING\n\nIf you use this script, make sure NOT to collect coins until the process is completely finished!")
     local choice = gg.choice({
-        "⌖ Level",
-        "⌖ XP",
-        "⌖ Token",
-        "⌖ Ticket",
-        "⌖ LR",
-        "⌖ Nitro & Repair MAX",
-        "⌖ Set All",
-        "Back"
-    }, nil, "Inventory Editor")
+        "➴ Change Level",
+        "➴ Change XP",
+        "➴ Change Token",
+        "➴ Change Ticket",
+        "➴ Change LR",
+        "➴ Set Nitro & Repair MAX",
+        "➴ Set All",
+        "Exit"
+    }, nil, "Inventory Encoder")
     if choice == 1 then setLevel() end
     if choice == 2 then setXp() end
-    if choice == 3 then setTkn() end
-    if choice == 4 then setTic() end
+    if choice == 3 then setToken() end
+    if choice == 4 then setTicket() end
     if choice == 5 then setLR() end
     if choice == 6 then setNitroRepair() end
     if choice == 7 then setAll() end
+    if choice == 8 then os.exit() end
 end
 
 function mainMenu()
