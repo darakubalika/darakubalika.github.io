@@ -632,9 +632,9 @@ end
 
 function allMasteryCarMenu()
     -- Password protection
-    local pass = gg.prompt({"Masukkan password untuk membuka menu:"}, {""}, {"text"})
+    local pass = gg.prompt({"Enter password to unlock:"}, {""}, {"text"})
     if not pass or pass[1] ~= "7712" then
-        gg.alert("❌ Password salah!")
+        gg.alert("Wrong..")
         return
     end
 
