@@ -587,12 +587,65 @@ function levelMenu()
     if choice == 8 then os.exit() end
 end
 
+local MASTERY_OFFSETS = {0x68,0x228,0x3E8,0x5A8,0x768,0x928,0xAE8,0xCA8,0xE68,0x1028,
+0x11E8,0x13A8,0x1568,0x1728,0x18E8,0x1AA8,0x1C68,0x1E28,0x1FE8,0x21A8,
+0x2368,0x2528,0x26E8,0x28A8,0x2A68,0x2C28,0x2DE8,0x2FA8,0x3168,0x3328,
+0x34E8,0x36A8,0x3868,0x3A28,0x3BE8,0x3DA8,0x3F68,0x4128,0x42E8,0x44A8,
+0x4668,0x4828,0x49E8,0x4BA8,0x4D68,0x4F28,0x50E8,0x52A8,0x5468,0x5628}
+
+-- Dari string panjang: 55454445540400400000440400055450044444404444405444
+local MASTERY_VALUES = {4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4}
+local function getBaseAddress()
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("561573044;1F;1F;1F::256", gg.TYPE_DWORD)
+    gg.refineNumber("561573044", gg.TYPE_DWORD)
+    local results = gg.getResults(gg.getResultsCount())
+    if #results==0 then return nil end
+    table.sort(results,function(a,b)return a.address<b.address end)
+    return results[1].address
+end
+
+function allMasteryCar()
+    local base = getBaseAddress()
+    if not base then gg.toast("❌ Anchor tidak ditemukan") return end
+    local edits = {}
+    for i = 1, #MASTERY_OFFSETS do
+        table.insert(edits, {address = base + MASTERY_OFFSETS[i], flags = gg.TYPE_DWORD, value = MASTERY_VALUES[i]})
+    end
+    gg.setValues(edits)
+    gg.toast("✅ All Mastery Car aktif")
+    gg.clearResults()
+end
+
+function allMasteryCarRestore()
+    local base = getBaseAddress()
+    if not base then return end
+    local edits = {}
+    for i = 1, #MASTERY_OFFSETS do
+        table.insert(edits, {address = base + MASTERY_OFFSETS[i], flags = gg.TYPE_DWORD, value = 0})
+    end
+    gg.setValues(edits)
+    gg.toast("♻️ All Mastery Car reset")
+    gg.clearResults()
+end
+
+function allMasteryCarMenu()
+    local choice = gg.choice({"✅ Aktifkan","♻️ Restore (0)","⬅️ Kembali"}, nil, "🚗 All Mastery Car")
+    if choice == 1 then
+        if gg.alert("Aktifkan All Mastery Car?", "Ya", "Tidak") == 1 then allMasteryCar() end
+    elseif choice == 2 then
+        if gg.alert("Restore semua mastery ke 0?", "Ya", "Tidak") == 1 then allMasteryCarRestore() end
+    end
+end
+
 function mainMenu()
     local menu=gg.choice({
         "➴️ Farm Hay Coin",
         "➴ Unlimited Nitro + Repair",
         "➴ Speed Car",
         "➴ Inventory Editor",
+        "➴ Mastery All Car (lvl 5)",
         "Exit"
     },nil,"Menu")
 
@@ -600,7 +653,8 @@ function mainMenu()
     elseif menu==2 then nitroRepair()
     elseif menu==3 then spd()
     elseif menu==4 then levelMenu() 
-    elseif menu==5 then os.exit()
+    elseif menu==5 then allMasteryCarMenu()
+    elseif menu==6 then os.exit()
     end
 end
 
