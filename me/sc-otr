@@ -631,13 +631,31 @@ function allMasteryCarRestore()
 end
 
 function allMasteryCarMenu()
-    local choice = gg.choice({"✅ Aktifkan","♻️ Restore (0)","⬅️ Kembali"}, nil, "🚗 All Mastery Car")
+    -- Password protection
+    local pass = gg.prompt({"Masukkan password untuk membuka menu:"}, {""}, {"text"})
+    if not pass or pass[1] ~= "7712" then
+        gg.alert("❌ Password salah!")
+        return
+    end
+
+    -- Menu utama
+    local choice = gg.choice({
+        "✅ Aktifkan",
+        "♻️ Restore (0)",
+        "⬅️ Kembali"
+    }, nil, "🚗 All Mastery Car")
+
     if choice == 1 then
-        if gg.alert("Aktifkan All Mastery Car?", "Ya", "Tidak") == 1 then allMasteryCar() end
+        if gg.alert("Aktifkan All Mastery Car?", "Ya", "Tidak") == 1 then
+            allMasteryCar()
+        end
     elseif choice == 2 then
-        if gg.alert("Restore semua mastery ke 0?", "Ya", "Tidak") == 1 then allMasteryCarRestore() end
+        if gg.alert("Restore semua mastery ke 0?", "Ya", "Tidak") == 1 then
+            allMasteryCarRestore()
+        end
     end
 end
+
 
 function mainMenu()
     local menu=gg.choice({
