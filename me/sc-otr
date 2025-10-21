@@ -666,7 +666,7 @@ function mainMenu()
     elseif menu==2 then nitroRepair()
     elseif menu==3 then spd()
     elseif menu==4 then levelMenu() 
-    elseif menu==5 then ScoreHack()
+    elseif menu==5 then scoreHack()
     elseif menu==6 then os.exit()
     end
 end
