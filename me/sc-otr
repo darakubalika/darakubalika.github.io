@@ -652,6 +652,32 @@ function scoreHack()
     gg.clearResults()
 end
 
+function skipSession()
+    gg.toast("Wait..")
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("10000D~40000D;10000D~40000D;900;0~900::17", gg.TYPE_FLOAT)
+    gg.refineNumber("900", gg.TYPE_FLOAT)
+
+    local results = gg.getResults(1000)
+    if #results == 0 then
+        gg.alert("not found")
+        return
+    end
+
+    gg.toast("value found: " .. #results .. " hasil")
+    local edits = {}
+
+    for i, v in ipairs(results) do
+        local addr = v.address + 4
+        table.insert(edits, {address = addr, flags = gg.TYPE_FLOAT, value = "900"})
+    end
+
+    gg.setValues(edits)
+    gg.toast("Success")
+end
+
+
 function mainMenu()
     local menu=gg.choice({
         "➴️ Farm Hay Coin",
@@ -659,6 +685,7 @@ function mainMenu()
         "➴ Speed Car",
         "➴ Inventory Editor",
         "➴ Score Hack (Multiplayer)",
+        "➴ Skip Session",
         "Exit"
     },nil,"Menu")
 
@@ -667,7 +694,8 @@ function mainMenu()
     elseif menu==3 then spd()
     elseif menu==4 then levelMenu() 
     elseif menu==5 then scoreHack()
-    elseif menu==6 then os.exit()
+    elseif menu==6 then skipSession()
+    elseif menu==7 then os.exit()
     end
 end
 
