@@ -596,11 +596,11 @@ function scoreHack()
 
     gg.clearResults()
     gg.setRanges(gg.REGION_C_ALLOC)
-    gg.searchNumber("1F;0~999999;10000~40000;1;67;0;10000~40000::57", gg.TYPE_DWORD)
-    gg.refineNumber("67", gg.TYPE_DWORD)
+    gg.searchNumber("0~40000;1,000,000;1::9", gg.TYPE_DWORD)
+    gg.refineNumber("1", gg.TYPE_DWORD)
     local cnt = gg.getResultsCount()
     if cnt == 0 then
-        gg.refineNumber("67", gg.TYPE_FLOAT)
+        gg.refineNumber("1", gg.TYPE_FLOAT)
         cnt = gg.getResultsCount()
     end
 
@@ -614,9 +614,9 @@ function scoreHack()
     local anchor = results[1].address
 
     local offsets = {
-        {0x280, "Player 1"},
-        {0x510, "Player 2"},
-        {0x7A0, "Player 3"},
+        {0x3BC, "Player 1"},
+        {0x64C, "Player 2"},
+        {0x8DC, "Player 3"},
     }
 
     local newValue = 2147483600
