@@ -1,3 +1,5 @@
+local skip_results = nil 
+
 function farmhay()
     local confirm = gg.alert("⚠️ WARNING\n\nare you sure you want to activate farm hay coin hack", "Yes", "No")
     if confirm ~= 1 then
@@ -652,31 +654,35 @@ function scoreHack()
     gg.clearResults()
 end
 
+local skip_results = nil 
+
 function skipSession()
-    gg.toast("Wait..")
-    gg.clearResults()
-    gg.setRanges(gg.REGION_C_ALLOC)
-    gg.searchNumber("10000D~40000D;10000D~40000D;900;0~900::17", gg.TYPE_FLOAT)
-    gg.refineNumber("900", gg.TYPE_FLOAT)
+    gg.toast("Wait...")
 
-    local results = gg.getResults(1000)
-    if #results == 0 then
-        gg.alert("not found")
-        return
+    if not skip_results then
+        gg.clearResults()
+        gg.setRanges(gg.REGION_C_ALLOC)
+        gg.searchNumber("10000D~40000D;10000D~40000D;900;0~900::17", gg.TYPE_FLOAT)
+        gg.refineNumber("900", gg.TYPE_FLOAT)
+        local results = gg.getResults(1000)
+
+        if #results == 0 then
+            gg.alert("not found")
+            return
+        end
+
+        skip_results = results
+    else
     end
-
-    gg.toast("value found: " .. #results .. " hasil")
     local edits = {}
-
-    for i, v in ipairs(results) do
+    for i, v in ipairs(skip_results) do
         local addr = v.address + 4
-        table.insert(edits, {address = addr, flags = gg.TYPE_FLOAT, value = "900"})
+        table.insert(edits, {address = addr, flags = gg.TYPE_FLOAT, value = 900})
     end
 
     gg.setValues(edits)
     gg.toast("Success")
 end
-
 
 function mainMenu()
     local menu=gg.choice({
