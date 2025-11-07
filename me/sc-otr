@@ -578,28 +578,28 @@ function setAll()
         return true
     end
 
-    if level > 0 then
+    if level ~= nil then
         if not encodeAndSet(level, 0x1B8) then return end
         gg.setValues({{address = addrMaxXP, flags = gg.TYPE_DWORD, value = 9999999}})
         gg.toast("Level changed to " .. level .. " and Max XP set to 9,999,999")
     end
 
-    if xp > 0 then
+    if xp ~= nil then
         if not encodeAndSet(xp, 0x34) then return end
         gg.toast("XP changed to " .. xp)
     end
 
-    if token > 0 then
+    if token ~= nil then
         if not encodeAndSet(token, 0x38) then return end
         gg.toast("Token changed to " .. token)
     end
 
-    if ticket > 0 then
+    if ticket ~= nil then
         if not encodeAndSet(ticket, 0x3C) then return end
         gg.toast("Ticket changed to " .. ticket)
     end
 
-    if lr > 0 then
+    if lr ~= nil then
         if not encodeAndSet(lr, 0x44) then return end
         gg.toast("LR changed to " .. lr)
     end
