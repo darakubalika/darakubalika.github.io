@@ -719,7 +719,7 @@ end
 function mainMenu()
     local menu=gg.choice({
         "➴️ Farm Hay Coin",
-        "➴️ Exit car"
+        "➴️ Exit car",
         "➴ No cooldown Nitro & Repair",
         "➴ Speed Car",
         "➴ Inventory Editor",
