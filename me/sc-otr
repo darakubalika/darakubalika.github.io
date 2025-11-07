@@ -654,7 +654,6 @@ function scoreHack()
     gg.clearResults()
 end
 
-
 function skipSession()
     gg.toast("Wait...")
 
@@ -666,24 +665,24 @@ function skipSession()
         local results = gg.getResults(1000)
 
         if #results == 0 then
-            gg.alert("not found")
+            gg.alert("Not found")
             return
         end
 
         skip_results = results
     end
 
-    local edits = {}
     for i, v in ipairs(skip_results) do
-        local addr1 = v.address + 4
-        local addr2 = v.address + 12
-        table.insert(edits, {address = addr1, flags = gg.TYPE_FLOAT, value = 900})
-        table.insert(edits, {address = addr2, flags = gg.TYPE_FLOAT, value = 100})
+        local addr4 = v.address + 4
+        local addrC = v.address + 0xC 
+        gg.setValues({{address = addr4, flags = gg.TYPE_FLOAT, value = 900}})
+        gg.sleep(100)
+        gg.setValues({{address = addrC, flags = gg.TYPE_FLOAT, value = 100}})
     end
 
-    gg.setValues(edits)
     gg.toast("Success")
 end
+
 
 
 function mainMenu()
