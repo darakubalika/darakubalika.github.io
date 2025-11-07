@@ -662,7 +662,7 @@ function skipSession()
     if not skip_results then
         gg.clearResults()
         gg.setRanges(gg.REGION_C_ALLOC)
-        gg.searchNumber("900;1~900;0~1e-10;0~120::13", gg.TYPE_FLOAT)
+        gg.searchNumber("3D;900;1~900;0::201", gg.TYPE_FLOAT)
         gg.refineNumber("900", gg.TYPE_FLOAT)
         local results = gg.getResults(1000)
 
