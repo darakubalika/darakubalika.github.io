@@ -671,19 +671,20 @@ function skipSession()
         end
 
         skip_results = results
-    else
     end
+
     local edits = {}
     for i, v in ipairs(skip_results) do
-        local addr = v.address + 4
+        local addr1 = v.address + 4
         local addr2 = v.address + 8
-        table.insert(edits, {address = addr, flags = gg.TYPE_FLOAT, value = 900})
+        table.insert(edits, {address = addr1, flags = gg.TYPE_FLOAT, value = 900})
         table.insert(edits, {address = addr2, flags = gg.TYPE_FLOAT, value = 100})
     end
 
     gg.setValues(edits)
     gg.toast("Success")
 end
+
 
 function mainMenu()
     local menu=gg.choice({
