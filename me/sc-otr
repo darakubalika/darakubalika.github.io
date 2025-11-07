@@ -203,7 +203,7 @@ function setLevel()
 
     gg.clearResults()
     gg.setRanges(gg.REGION_C_ALLOC)
-    gg.searchNumber("-1;0;561671348::77", gg.TYPE_DWORD)
+    gg.searchNumber("-1;0;1;561671348;0;561671348::89", gg.TYPE_DWORD)
     gg.refineNumber("-1", gg.TYPE_DWORD)
     local resA = gg.getResults(500)
     local baseA = resA[1] and resA[1].address or nil
@@ -265,7 +265,7 @@ function setXp()
 
     gg.clearResults()
     gg.setRanges(gg.REGION_C_ALLOC)
-    gg.searchNumber("-1;0;561671348::77", gg.TYPE_DWORD)
+    gg.searchNumber("-1;0;1;561671348;0;561671348::89", gg.TYPE_DWORD)
     gg.refineNumber("-1", gg.TYPE_DWORD)
     local resA = gg.getResults(500)
     local baseA = resA[1] and resA[1].address or nil
@@ -323,7 +323,7 @@ function setToken()
 
     gg.clearResults()
     gg.setRanges(gg.REGION_C_ALLOC)
-    gg.searchNumber("-1;0;561671348::77", gg.TYPE_DWORD)
+    gg.searchNumber("-1;0;1;561671348;0;561671348::89", gg.TYPE_DWORD)
     gg.refineNumber("-1", gg.TYPE_DWORD)
     local resA = gg.getResults(500)
     local baseA = resA[1] and resA[1].address or nil
@@ -380,7 +380,7 @@ function setTicket()
 
     gg.clearResults()
     gg.setRanges(gg.REGION_C_ALLOC)
-    gg.searchNumber("-1;0;561671348::77", gg.TYPE_DWORD)
+    gg.searchNumber("-1;0;1;561671348;0;561671348::89", gg.TYPE_DWORD)
     gg.refineNumber("-1", gg.TYPE_DWORD)
     local resA = gg.getResults(500)
     local baseA = resA[1] and resA[1].address or nil
@@ -437,7 +437,7 @@ function setLR()
 
     gg.clearResults()
     gg.setRanges(gg.REGION_C_ALLOC)
-    gg.searchNumber("-1;0;561671348::77", gg.TYPE_DWORD)
+    gg.searchNumber("-1;0;1;561671348;0;561671348::89", gg.TYPE_DWORD)
     gg.refineNumber("-1", gg.TYPE_DWORD)
     local resA = gg.getResults(500)
     local baseA = resA[1] and resA[1].address or nil
@@ -489,7 +489,7 @@ function setNitroRepair()
 
     gg.clearResults()
     gg.setRanges(gg.REGION_C_ALLOC)
-    gg.searchNumber("-1;0;561671348::77", gg.TYPE_DWORD)
+    gg.searchNumber("-1;0;1;561671348;0;561671348::89", gg.TYPE_DWORD)
     gg.refineNumber("-1", gg.TYPE_DWORD)
     local resA = gg.getResults(500)
     local baseA = resA[1] and resA[1].address or nil
@@ -532,7 +532,7 @@ function setAll()
 
     gg.clearResults()
     gg.setRanges(gg.REGION_C_ALLOC)
-    gg.searchNumber("-1;0;561671348::77", gg.TYPE_DWORD)
+    gg.searchNumber("-1;0;1;561671348;0;561671348::89", gg.TYPE_DWORD)
     gg.refineNumber("-1", gg.TYPE_DWORD)
     local resA = gg.getResults(500)
     local baseA = resA[1] and resA[1].address or nil
