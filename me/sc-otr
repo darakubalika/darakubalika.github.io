@@ -28,6 +28,37 @@ function farmhay()
     gg.clearResults()
 end
 
+function exitCar()
+    gg.toast("wait...")
+
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("3D;900;1~900;0::201", gg.TYPE_FLOAT)
+    gg.refineNumber("3", gg.TYPE_FLOAT)
+    local results = gg.getResults(1000)
+
+    if #results == 0 then
+        gg.alert("not found")
+        return
+    end
+
+    gg.toast("you have 3 seconds to get out of the car")
+    for i, v in ipairs(results) do
+        v.value = 6
+        v.freeze = false
+        v.flags = gg.TYPE_DWORD
+    end
+    gg.setValues(results)
+    gg.sleep(3000)
+    for i, v in ipairs(results) do
+        v.value = 3
+        v.flags = gg.TYPE_DWORD
+    end
+    gg.setValues(results)
+    gg.toast("Returned to normal")
+end
+
+
 function nitroRepair()
     gg.clearResults()
     gg.setRanges(gg.REGION_C_ALLOC)
@@ -688,7 +719,8 @@ end
 function mainMenu()
     local menu=gg.choice({
         "➴️ Farm Hay Coin",
-        "➴ Unlimited Nitro + Repair",
+        "➴️ Exit car"
+        "➴ No cooldown Nitro & Repair",
         "➴ Speed Car",
         "➴ Inventory Editor",
         "➴ Score Hack (Multiplayer)",
@@ -697,12 +729,13 @@ function mainMenu()
     },nil,"Menu")
 
     if menu==1 then farmhay()
-    elseif menu==2 then nitroRepair()
-    elseif menu==3 then spd()
-    elseif menu==4 then levelMenu() 
-    elseif menu==5 then scoreHack()
-    elseif menu==6 then skipSession()
-    elseif menu==7 then os.exit()
+    elseif menu==2 then exitCar()
+    elseif menu==3 then nitroRepair()
+    elseif menu==4 then spd()
+    elseif menu==5 then levelMenu() 
+    elseif menu==6 then scoreHack()
+    elseif menu==7 then skipSession()
+    elseif menu==8 then os.exit()
     end
 end
 
