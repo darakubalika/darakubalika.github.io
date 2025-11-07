@@ -34,7 +34,7 @@ function exitCar()
     gg.clearResults()
     gg.setRanges(gg.REGION_C_ALLOC)
     gg.searchNumber("3D;900;1~900;0::201", gg.TYPE_FLOAT)
-    gg.refineNumber("3", gg.TYPE_FLOAT)
+    gg.refineNumber("3", gg.TYPE_DWORD)
     local results = gg.getResults(1000)
 
     if #results == 0 then
