@@ -139,17 +139,30 @@ local function jw(a, s)
     gg.setValues(e)
 end
 
-local function x1(i) 
+local function x1(i)
     local p = m1[i]
     if not p then return nil end
     gg.clearResults()
     gg.searchNumber(p, gg.TYPE_FLOAT)
-    local r = gg.getResults(2)
-    if #r == 0 then gg.clearResults() return nil end
-    local b = (r[2] or r[1]).address
+    local r = gg.getResults(100)
+    if #r == 0 then
+        gg.clearResults()
+        return nil
+    end
+    local b = nil
+    for j = #r, 1, -1 do
+        if r[j].flags == gg.TYPE_FLOAT then
+            b = r[j].address
+            break
+        end
+    end
+    if not b then
+        b = r[1].address  -- fallback jika tidak ada FLOAT
+    end
     gg.clearResults()
     return b
 end
+
 
 local function ca(i, s) 
     local b = x1(i)
