@@ -654,7 +654,6 @@ function scoreHack()
     gg.clearResults()
 end
 
-local skip_results = nil 
 
 function skipSession()
     gg.toast("Wait...")
@@ -677,7 +676,9 @@ function skipSession()
     local edits = {}
     for i, v in ipairs(skip_results) do
         local addr = v.address + 4
+        local addr2 = v.address + 8
         table.insert(edits, {address = addr, flags = gg.TYPE_FLOAT, value = 900})
+        table.insert(edits, {address = addr2, flags = gg.TYPE_FLOAT, value = 100})
     end
 
     gg.setValues(edits)
