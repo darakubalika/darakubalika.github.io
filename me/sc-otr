@@ -29,32 +29,34 @@ function farmhay()
 end
 
 function exitCar()
-    gg.toast("wait...")
+    gg.toast("Wait...")
 
-    gg.clearResults()
-    gg.setRanges(gg.REGION_C_ALLOC)
-    gg.searchNumber("3D;900;1~900;0::201", gg.TYPE_FLOAT)
-    gg.refineNumber("3", gg.TYPE_DWORD)
-    local results = gg.getResults(1000)
+    if not exit_results then
+        gg.clearResults()
+        gg.setRanges(gg.REGION_C_ALLOC)
+        gg.searchNumber("3D;900;1~900;0::201", gg.TYPE_FLOAT)
+        gg.refineNumber("3", gg.TYPE_DWORD)
+        local results = gg.getResults(1000)
 
-    if #results == 0 then
-        gg.alert("not found")
-        return
+        if #results == 0 then
+            gg.alert("not found")
+            return
+        end
+
+        exit_results = results
     end
-
+    local edits = {}
+    for i, v in ipairs(exit_results) do
+        table.insert(edits, {address = v.address, flags = gg.TYPE_DWORD, value = 6})
+    end
+    gg.setValues(edits)
     gg.toast("you have 3 seconds to get out of the car")
-    for i, v in ipairs(results) do
-        v.value = 6
-        v.freeze = false
-        v.flags = gg.TYPE_DWORD
-    end
-    gg.setValues(results)
     gg.sleep(3000)
-    for i, v in ipairs(results) do
-        v.value = 3
-        v.flags = gg.TYPE_DWORD
+    local revert = {}
+    for i, v in ipairs(exit_results) do
+        table.insert(revert, {address = v.address, flags = gg.TYPE_DWORD, value = 3})
     end
-    gg.setValues(results)
+    gg.setValues(revert)
     gg.toast("Returned to normal")
 end
 
