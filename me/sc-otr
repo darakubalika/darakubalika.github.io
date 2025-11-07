@@ -676,7 +676,7 @@ function skipSession()
     local edits = {}
     for i, v in ipairs(skip_results) do
         local addr1 = v.address + 4
-        local addr2 = v.address + 8
+        local addr2 = v.address + C
         table.insert(edits, {address = addr1, flags = gg.TYPE_FLOAT, value = 900})
         table.insert(edits, {address = addr2, flags = gg.TYPE_FLOAT, value = 100})
     end
