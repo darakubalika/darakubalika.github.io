@@ -667,7 +667,7 @@ function scoreHack()
         {0x8DC, "Player 3"},
     }
 
-    local newValue = 2147483600
+    local newValue = 2147483000
     local edits, freezes = {}, {}
 
     for i, o in ipairs(offsets) do
@@ -737,7 +737,7 @@ function mainMenu()
         "➴️ Exit car",
         "➴ No cooldown Nitro & Repair",
         "➴ Speed Car",
-        "➴ Inventory Editor",
+        "➴ Inventory Editor(level, XP, etc.)",
         "➴ Score Hack (Multiplayer)",
         "➴ Skip Session",
         "Exit"
