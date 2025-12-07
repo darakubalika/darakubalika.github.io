@@ -644,7 +644,7 @@ function scoreHack()
 
     gg.clearResults()
     gg.setRanges(gg.REGION_C_ALLOC)
-    gg.searchNumber("0;1000000;1;0;1F;1.40129846e-45F::350", gg.TYPE_DWORD)
+    gg.searchNumber("0;1000000;1;0;1F::310", gg.TYPE_DWORD)
     gg.refineNumber("1", gg.TYPE_DWORD)
     local cnt = gg.getResultsCount()
     if cnt == 0 then
