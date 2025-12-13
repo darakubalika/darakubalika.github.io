@@ -732,7 +732,7 @@ end
 
 function ulkc()
     gg.clearResults()
-    local confirm = gg.alert("⚠️ this will make all cars cost 1 coin except cars obtained using levelsnProceed?", "Yes", "No")
+    local confirm = gg.alert("⚠️ this will make all cars cost 1 coin except cars obtained using levels\nProceed?", "Yes", "No")
     gg.searchNumber(
         "0~1000;0~1000;0~150000;0~120000;5000~150000;5000~150000;5000~150000;-1::29",
         gg.TYPE_DWORD
