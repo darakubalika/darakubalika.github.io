@@ -730,13 +730,39 @@ function skipSession()
 end
 
 
+function ulkc()
+    gg.clearResults()
+    local confirm = gg.alert("⚠️ this will make all cars cost 1 coin except cars obtained using levelsnProceed?", "Yes", "No")
+    gg.searchNumber(
+        "0~1000;0~1000;0~150000;0~120000;5000~150000;5000~150000;5000~150000;-1::29",
+        gg.TYPE_DWORD
+    )
+    gg.refineNumber("-1", gg.TYPE_DWORD)
+    local r = gg.getResults(gg.getResultCount())
+    if #r == 0 then
+        gg.toast("not found")
+        return
+    end
+    local t = {}
+    for i, v in ipairs(r) do
+        t[#t + 1] = {
+            address = v.address - 0x10,
+            flags = gg.TYPE_DWORD,
+            value = 1
+        }
+    end
+    gg.setValues(t)
+    gg.toast("Sucess (" .. #t .. " address)")
+end
+
 
 function mainMenu()
     local menu=gg.choice({
         "➴️ Farm Hay Coin",
         "➴️ Exit car",
         "➴ No cooldown Nitro & Repair",
-        "➴ Speed Car",
+        "➴ Speed car",
+        "➴ Unlock car",
         "➴ Inventory Editor(level, XP, etc.)",
         "➴ Score Hack (Multiplayer)",
         "➴ Skip Session",
@@ -747,10 +773,11 @@ function mainMenu()
     elseif menu==2 then exitCar()
     elseif menu==3 then nitroRepair()
     elseif menu==4 then spd()
-    elseif menu==5 then levelMenu() 
-    elseif menu==6 then scoreHack()
-    elseif menu==7 then skipSession()
-    elseif menu==8 then os.exit()
+    elseif menu==5 then ulkc()
+    elseif menu==6 then levelMenu() 
+    elseif menu==7 then scoreHack()
+    elseif menu==8 then skipSession()
+    elseif menu==9 then os.exit()
     end
 end
 
