@@ -623,7 +623,7 @@ function levelMenu()
         "➴ Change LR",
         "➴ Set Nitro & Repair MAX",
         "➴ Set All",
-        "Exit"
+        "Back"
     }, nil, "Inventory Encoder")
     if choice == 1 then setLevel() end
     if choice == 2 then setXp() end
@@ -632,7 +632,6 @@ function levelMenu()
     if choice == 5 then setLR() end
     if choice == 6 then setNitroRepair() end
     if choice == 7 then setAll() end
-    if choice == 8 then os.exit() end
 end
 
 function scoreHack()
@@ -755,10 +754,62 @@ function ulkc()
     gg.toast("Sucess (" .. #t .. " address)")
 end
 
+function irnco()
+    local confirm = gg.alert("⚠️  This will change the foundary into a coin farm\nProceed?", "Yes", "No")
+    if confirm ~= 1 then
+        gg.toast("Cancelled")
+        return
+    end
+
+    gg.clearResults()
+    gg.setRanges(gg.REGION_C_ALLOC)
+    gg.searchNumber("1;1090519040;8;50;1330792712;78;8;::245", gg.TYPE_DWORD)
+    gg.refineNumber("1", gg.TYPE_DWORD)
+    local cnt = gg.getResultsCount()
+    if cnt == 0 then
+        gg.toast("not found")
+        gg.clearResults()
+        return
+    end
+
+    local results = gg.getResults(cnt)
+    local anchor = results[1].address
+
+    local offsets = {
+        {0x4, 0}, 
+        {0x8, 1073741824}, 
+        {0xC, 1},
+        {0x10, 0},
+        {0x14, 2},
+        {0x18, 2147483647}, 
+        {0x1C, 1497450502},
+        {0xD4, 2},
+        {0xD8, 2147483647}, 
+        {0xF4, 2}, 
+        {0xF8, 2147483647},
+        {0x0, 2},
+    }
+
+    local edits = {}
+
+    for i, o in ipairs(offsets) do
+        local addr = anchor + o[1]
+        table.insert(edits, {address = addr, flags = gg.TYPE_DWORD, value = o[2]})
+        gg.toast("Updated offset: 0x" .. string.format("%X", addr) .. " -> " .. o[2])
+    end
+
+    if #edits > 0 then
+        gg.setValues(edits)
+    end
+
+    gg.toast("Succesfully updated values")
+    gg.clearResults()
+end
 
 function mainMenu()
     local menu=gg.choice({
         "➴️ Farm Hay Coin",
+        "➴️ Foundary Coin [NEW]",
         "➴️ Exit car",
         "➴ No cooldown Nitro & Repair",
         "➴ Speed car",
@@ -770,14 +821,15 @@ function mainMenu()
     },nil,"Menu")
 
     if menu==1 then farmhay()
-    elseif menu==2 then exitCar()
-    elseif menu==3 then nitroRepair()
-    elseif menu==4 then spd()
-    elseif menu==5 then ulkc()
-    elseif menu==6 then levelMenu() 
-    elseif menu==7 then scoreHack()
-    elseif menu==8 then skipSession()
-    elseif menu==9 then os.exit()
+    elseif menu==2 then irnco()
+    elseif menu==3 then exitCar()
+    elseif menu==4 then nitroRepair()
+    elseif menu==5 then spd()
+    elseif menu==6 then ulkc()
+    elseif menu==7 then levelMenu() 
+    elseif menu==8 then scoreHack()
+    elseif menu==9 then skipSession()
+    elseif menu==10 then os.exit()
     end
 end
 
