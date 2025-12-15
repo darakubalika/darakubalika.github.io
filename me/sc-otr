@@ -755,7 +755,7 @@ function ulkc()
 end
 
 function irnco()
-    local confirm = gg.alert("⚠️  This will change the foundary into a coin farm\nProceed?", "Yes", "No")
+    local confirm = gg.alert("⚠️ this will change all fondary to hay coin\nProceed?", "Yes", "No")
     if confirm ~= 1 then
         gg.toast("Cancelled")
         return
@@ -809,7 +809,7 @@ end
 function mainMenu()
     local menu=gg.choice({
         "➴️ Farm Hay Coin",
-        "➴️ Foundary Coin [NEW]",
+        "➴️ Foundary Hay Coin [NEW]",
         "➴️ Exit car",
         "➴ No cooldown Nitro & Repair",
         "➴ Speed car",
