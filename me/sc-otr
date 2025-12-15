@@ -802,7 +802,7 @@ function irnco()
         gg.setValues(edits)
     end
 
-    gg.toast("Succesfully updated values")
+    gg.toast("Succes")
     gg.clearResults()
 end
 
