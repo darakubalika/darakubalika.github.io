@@ -853,8 +853,6 @@ function mwlx()
     end
 end
 
-mwlx()
-
 function mainMenu()
     local menu=gg.choice({
         "➴️ Farm Hay Coin",
