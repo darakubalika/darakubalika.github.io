@@ -66,20 +66,26 @@ function nitroRepair()
     gg.setRanges(gg.REGION_C_ALLOC)
     gg.searchNumber("2;30::5", gg.TYPE_FLOAT)
     local results = gg.getResults(gg.getResultsCount())
-    if #results==0 then gg.toast("Not Found") return end
-    local edits, freezes = {}, {}
+    if #results == 0 then
+        gg.toast("Not Found")
+        return
+    end
+    local edits = {}
     for _, r in ipairs(results) do
-        if r.value==2 or r.value==30 then
-            table.insert(edits,{address=r.address-0x4,flags=gg.TYPE_FLOAT,value=0})
-            table.insert(edits,{address=r.address-0x8,flags=gg.TYPE_FLOAT,value=0})
-            table.insert(freezes,{address=r.address,flags=gg.TYPE_FLOAT,value=0,freeze=true})
+        if r.value == 2 or r.value == 30 then
+            table.insert(edits, {address = r.address - 0x4, flags = gg.TYPE_FLOAT, value = 0})
+            table.insert(edits, {address = r.address - 0x8, flags = gg.TYPE_FLOAT, value = 0})
+            table.insert(edits, {address = r.address,       flags = gg.TYPE_FLOAT, value = 0})
         end
     end
-    if #edits>0 then gg.setValues(edits) end
-    if #freezes>0 then gg.addListItems(freezes) end
-    gg.toast("Succes")
+    if #edits > 0 then
+        gg.setValues(edits)
+        gg.toast("Success")
+    else
+    end
     gg.clearResults()
 end
+
 
 
 gg.clearResults()
