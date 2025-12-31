@@ -638,6 +638,7 @@ function levelMenu()
     if choice == 5 then setLR() end
     if choice == 6 then setNitroRepair() end
     if choice == 7 then setAll() end
+    if choice == 8 then mainMenu() end
 end
 
 function scoreHack()
