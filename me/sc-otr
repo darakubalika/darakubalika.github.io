@@ -808,8 +808,8 @@ end
 
 function mwlx()
     gg.clearResults()
+    local confirm = gg.alert("⚠️ this will make all cars mastery\nProceed?", "Yes", "No")
     gg.setRanges(gg.REGION_C_ALLOC)
-
     gg.searchNumber("561573044;1F;1F;1F::256", gg.TYPE_DWORD)
     local r = gg.getResults(gg.getResultsCount())
     if #r == 0 then
