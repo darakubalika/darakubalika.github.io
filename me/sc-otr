@@ -740,7 +740,7 @@ function ulkc()
     gg.clearResults()
     local confirm = gg.alert("⚠️ This will unlock all cars\nProceed?", "Yes", "No")
     gg.searchNumber(
-        "1~900;1~900;0~6000;0~120000;5000~150000;5000~150000;5000~150000::25",
+        "1~900;1~900;0~100000;0~120000;5000~150000;5000~150000;5000~150000::25",
         gg.TYPE_DWORD
     )
     local r = gg.getResults(gg.getResultsCount())
