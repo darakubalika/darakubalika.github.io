@@ -735,7 +735,7 @@ function skipSession()
     gg.toast("Success")
 end
 
-function ulk1()
+function ulkc1()
     gg.clearResults()
     gg.searchNumber(
         "0~1000;0~1000;0~150000;0~120000;5000~150000;5000~150000;5000~150000;-1::29",
@@ -789,7 +789,7 @@ function ulkc()
         "➴ Unlock All Car with 1 Coin",
         "➴ Unlock All Car AutoUnlock",
         "Back"
-    }, nil, "Inventory Encoder")
+    }, nil, "Unlock All Car just unlock the car that is not unlocked using level")
     if choice == 1 then ulkc1() end
     if choice == 2 then ulkc2() end
     if choice == 3 then mainMenu() end
