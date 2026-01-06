@@ -774,27 +774,39 @@ function ulkc2()
         return
     end
 
-    local setToOne = {}
+    ulkc2_addr = {}
+    local t = {}
+
     for _, v in ipairs(r) do
-        setToOne[#setToOne + 1] = {
+        ulkc2_addr[#ulkc2_addr + 1] = v.address
+        t[#t + 1] = {
             address = v.address,
             flags = gg.TYPE_DWORD,
             value = 1
         }
     end
-    gg.setValues(setToOne)
-    gg.sleep(100)
-    local setBack = {}
-    for _, v in ipairs(r) do
-        setBack[#setBack + 1] = {
-            address = v.address,
+
+    gg.setValues(t)
+    ulkc2_active = true
+
+    gg.toast("Success (" .. #t .. " address)")
+    gg.clearResults()
+end
+
+function ulkc2r()
+    if not ulkc2_active or #ulkc2_addr == 0 then return end
+    local q = gg.alert("Done Unlock ALL Car?","YES","NO")
+    if q ~= 1 then return end
+    local t = {}
+    for _, addr in ipairs(ulkc2_addr) do
+        t[#t + 1] = {
+            address = addr,
             flags = gg.TYPE_DWORD,
             value = -1
         }
     end
-    gg.setValues(setBack)
-    gg.toast("Success (" .. #r .. " address)")
-    gg.clearResults()
+    gg.setValues(t)
+    ulkc2_active = false
 end
 
 function ulkc()
@@ -938,6 +950,14 @@ function mainMenu()
 end
 
 while true do
-    if gg.isVisible(true) then gg.setVisible(false) mainMenu() end
+    if gg.isVisible(true) then
+        gg.setVisible(false)
+        if ulkc2_active then
+            ulkc2_r()
+        else
+            mainMenu()
+        end
+    end
     gg.sleep(1)
 end
+
