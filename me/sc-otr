@@ -735,10 +735,32 @@ function skipSession()
     gg.toast("Success")
 end
 
-
-function ulkc()
+function ulk1()
     gg.clearResults()
-    local confirm = gg.alert("⚠️This will unlock all cars except the cars that must be unlocked using levels?", "Yes", "No")
+    gg.searchNumber(
+        "0~1000;0~1000;0~150000;0~120000;5000~150000;5000~150000;5000~150000;-1::29",
+        gg.TYPE_DWORD
+    )
+    gg.refineNumber("-1", gg.TYPE_DWORD)
+    local r = gg.getResults(gg.getResultCount())
+    if #r == 0 then
+        gg.toast("not found")
+        return
+    end
+    local t = {}
+    for i, v in ipairs(r) do
+        t[#t + 1] = {
+            address = v.address - 0x10,
+            flags = gg.TYPE_DWORD,
+            value = 1
+        }
+    end
+    gg.setValues(t)
+    gg.toast("Sucess (" .. #t .. " address)")
+end
+
+function ulkc2()
+    gg.clearResults()
     gg.searchNumber(
         "0~1000;0~1000;0~150000;0~120000;5000~150000;5000~150000;5000~150000;-1::29",
         gg.TYPE_DWORD
@@ -759,6 +781,18 @@ function ulkc()
     end
     gg.setValues(t)
     gg.toast("Sucess (" .. #t .. " address)")
+end
+
+function ulkc()
+    gg.alert("⚠️This will unlock all cars except the cars that must be unlocked using levels?")
+    local choice = gg.choice({
+        "➴ Unlock All Car with 1 Coin",
+        "➴ Unlock All Car AutoUnlock",
+        "Back"
+    }, nil, "Inventory Encoder")
+    if choice == 1 then ulkc1() end
+    if choice == 2 then ulkc2() end
+    if choice == 3 then mainMenu() end
 end
 
 function irnco()
