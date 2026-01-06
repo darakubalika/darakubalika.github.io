@@ -757,6 +757,7 @@ function ulkc1()
     end
     gg.setValues(t)
     gg.toast("Sucess (" .. #t .. " address)")
+    gg.clearResults()
 end
 
 function ulkc2()
@@ -766,21 +767,34 @@ function ulkc2()
         gg.TYPE_DWORD
     )
     gg.refineNumber("-1", gg.TYPE_DWORD)
+
     local r = gg.getResults(gg.getResultCount())
     if #r == 0 then
         gg.toast("not found")
         return
     end
-    local t = {}
-    for i, v in ipairs(r) do
-        t[#t + 1] = {
-            address = v.address + 0x0,
+
+    local setToOne = {}
+    for _, v in ipairs(r) do
+        setToOne[#setToOne + 1] = {
+            address = v.address,
             flags = gg.TYPE_DWORD,
             value = 1
         }
     end
-    gg.setValues(t)
-    gg.toast("Sucess (" .. #t .. " address)")
+    gg.setValues(setToOne)
+    gg.sleep(100)
+    local setBack = {}
+    for _, v in ipairs(r) do
+        setBack[#setBack + 1] = {
+            address = v.address,
+            flags = gg.TYPE_DWORD,
+            value = -1
+        }
+    end
+    gg.setValues(setBack)
+    gg.toast("Success (" .. #r .. " address)")
+    gg.clearResults()
 end
 
 function ulkc()
