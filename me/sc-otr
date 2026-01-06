@@ -923,13 +923,10 @@ end
 function x7k2()
     gg.clearResults()
     gg.setRanges(gg.REGION_C_ALLOC)
-    local a1 = gg.alert(
-        "⚠️ to use the edit speed of the engine and traction, for example engine 100 and traction 100\nProceed?",
-        "Yes","No"
-    )
+    local a1 = gg.alert("⚠️ to use the edit speed of the engine and traction, for example engine 100 and traction 100, How to use it change random car then change the previous car\nProceed?","Yes","No")
     if a1 ~= 1 then return end
     local m4r = {{"Carry",0},{"Ranger",4},{"Karma",1},{"Buggy",8},{"Dustmaker",27},{"Stinger",11},{"Lionheart",20},{"Mudbee",6},{"Iron Maiden",44},{"Sweet Dream",43},{"Caprice",46},{"Gepard",45},{"Defender",2},{"Jupiter",40},{"Inferno",50},{"Mercury",48},{"Meridian",56},{"Novara",57},{"Ranger OG",33},{"Somerset",12},{"Moonwalker",13},{"Jazzy",36},{"Legende",49},{"Onyx",54},{"Rainbow",34},{"Vulcan",21},{"Carbon Yeti",9},{"Taurus",15},{"Hurricane",37},{"Union",51},{"Aeon",52},{"Icarus",25},{"Peacemaker",17},{"Behemoth",28},{"Educator",18},{"Goliath",24},{"Tuky",23},{"Rusty",19},{"Poo Mobile",59},{"Maximus",5},{"Thunder",16},{"Schoolmaster",35},{"Ursus",14},{"Zed",26},{"Firetruck",58},{"Titan",7},{"Dachshund",10},{"Hercules",22},{"Icebreaker",41},{"Rudy",60}}
-    local n2x,i9d = {},{}
+    local n2x, i9d = {}, {}
     for k,v in ipairs(m4r) do
         n2x[#n2x+1] = "⌖ "..v[1]
         i9d[#i9d+1] = v[2]
@@ -937,8 +934,12 @@ function x7k2()
     local s8l = gg.multiChoice(n2x,nil,"Select Cars")
     if not s8l then return end
     local c9y = {}
+    local appliedNames = {}
     for i,v in pairs(s8l) do
-        if v then c9y[i9d[i]] = true end
+        if v then
+            c9y[i9d[i]] = true
+            appliedNames[#appliedNames+1] = m4r[i][1]
+        end
     end
     local p4t = gg.prompt(
         {"Engine (Example: 30)","Chassis(Example 100)","Suspension","Traction(Example: 30)"},
@@ -949,7 +950,7 @@ function x7k2()
     gg.searchNumber("561573044;1F;1F;1F::256", gg.TYPE_DWORD)
     local r6s = gg.getResults(gg.getResultsCount())
     if #r6s == 0 then
-        gg.toast("Anchor not found")
+        gg.toast("not found")
         return
     end
     local t6m,b1x,s7p = 60,-0x4,0x1C0
@@ -975,7 +976,7 @@ function x7k2()
         return
     end
     gg.setValues(e3d)
-    gg.toast("Applied")
+    gg.toast("Succes "..table.concat(appliedNames, ", "))
     gg.clearResults()
 end
 
