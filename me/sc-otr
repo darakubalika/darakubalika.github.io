@@ -875,7 +875,12 @@ end
 
 function mwlx()
     gg.clearResults()
-    local confirm = gg.alert("⚠️ this will make all cars mastery\nProceed?", "Yes", "No")
+    local cfrm = gg.alert("⚠️ this will make all cars mastery\nProceed?", "Yes", "No")
+    if cfrm ~= 1 then
+        gg.toast("Cancelled")
+        return
+    end
+
     gg.setRanges(gg.REGION_C_ALLOC)
     gg.searchNumber("561573044;1F;1F;1F::256", gg.TYPE_DWORD)
     local r = gg.getResults(gg.getResultsCount())
