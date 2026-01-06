@@ -787,14 +787,14 @@ function ulkc2()
     end
 
     gg.setValues(t)
-    ulkc2_active = true
+    ulkc2a = true
 
     gg.toast("Success (" .. #t .. " address)")
     gg.clearResults()
 end
 
 function ulkc2r()
-    if not ulkc2_active or #ulkc2_addr == 0 then return end
+    if not ulkc2a or #ulkc2_addr == 0 then return end
     local q = gg.alert("Done Unlock ALL Car?","YES","NO")
     if q ~= 1 then return end
     local t = {}
@@ -806,7 +806,7 @@ function ulkc2r()
         }
     end
     gg.setValues(t)
-    ulkc2_active = false
+    ulkc2a = false
 end
 
 function ulkc()
@@ -952,8 +952,8 @@ end
 while true do
     if gg.isVisible(true) then
         gg.setVisible(false)
-        if ulkc2_active then
-            ulkc2_r()
+        if ulkc2a then
+            ulkc2r()
         else
             mainMenu()
         end
