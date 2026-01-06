@@ -738,27 +738,28 @@ end
 
 function ulkc()
     gg.clearResults()
-    local confirm = gg.alert("⚠️ this will make all cars cost 1 coin except cars obtained using levels\nProceed?", "Yes", "No")
+    local confirm = gg.alert("⚠️ This will unlock all cars\nProceed?", "Yes", "No")
     gg.searchNumber(
-        "0~1000;0~1000;0~150000;0~120000;5000~150000;5000~150000;5000~150000;-1::29",
+        "1~900;1~900;0~6000;0~120000;5000~150000;5000~150000;5000~150000::25",
         gg.TYPE_DWORD
     )
-    gg.refineNumber("-1", gg.TYPE_DWORD)
-    local r = gg.getResults(gg.getResultCount())
+    local r = gg.getResults(gg.getResultsCount())
     if #r == 0 then
         gg.toast("not found")
         return
     end
     local t = {}
-    for i, v in ipairs(r) do
+    for _, v in ipairs(r) do
+        -- v.address = address nilai pertama (12)
         t[#t + 1] = {
-            address = v.address - 0x10,
+            address = v.address + 0x1C,
             flags = gg.TYPE_DWORD,
             value = 1
         }
     end
     gg.setValues(t)
-    gg.toast("Sucess (" .. #t .. " address)")
+    gg.toast("Success (" .. #t .. " address)")
+    gg.clearResults()
 end
 
 function irnco()
