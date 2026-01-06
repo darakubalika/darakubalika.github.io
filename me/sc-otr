@@ -90,114 +90,71 @@ end
 
 gg.clearResults()
 gg.setRanges(gg.REGION_C_ALLOC)
-
-local k2 = {
-    "⌖ Carry", "⌖ Fury", "⌖ Ranger", "⌖ Karma", "⌖ Payback", "⌖ Dustmaker", "⌖ Buggy", "⌖ Stringer", "⌖ Split fire",
-    "⌖ Lionheart", "⌖ Lionpaw", "⌖ Mudbee", "⌖ Iron maiden", "⌖ Sweetdream", "⌖ Caprice", "⌖ Gepard", "⌖ Defender",
-    "⌖ Jupiter", "⌖ Inferno", "⌖ Mercury", "⌖ Meridian", "⌖ Novara", "⌖ RangerOG", "⌖ Somerset", "⌖ Moonwalker",
-    "⌖ Moon rover", "⌖ Jazzy", "⌖ Legende", "⌖ Onyx", "⌖ Rainbow", "⌖ Vulcan", "⌖ Hellfire", "⌖ Carbonyeti", "⌖ Goldenyeti",
-    "⌖ Taurus", "⌖ Hurricane", "⌖ Typhoon", "⌖ Union", "⌖ Aeon", "⌖ Icarus", "⌖ Voltage", "⌖ Peacemaker", "⌖ Behemoth",
-    "⌖ Educator", "⌖ Goliath", "⌖ Tuky", "⌖ Rusty", "⌖ Poo Mobile", "⌖ Maximus", "⌖ Thunder", "⌖ School master", "⌖ Ursus", "⌖ Zed",
-    "⌖ Firetruck", "⌖ Titan", "⌖ Titanium", "⌖ Dashund", "⌖ Hercules", "⌖ Icebreaker",""
-}
-
-local m1 = { 
-    "32;64;400D::9", "72;72;400D::9", "75;68;750D::121", "220;72;800D::121", "72;72;800D::9",
-    "140;72;1050D::121", "200;72;1050D::121", "35;82;1100D::121", "88;88;1100D::9", "120;82;1100D::121",
-    "84;84;1100D::9", "0;40;76;1100D::13", "42;80;1250D::9", "60;84::5", "42;80;1300D::9",
-    "55;89::5", "220;76;1200D::121", "65;88::5", "48;85", "65;86::5", "55;83::5", "56;87::5",
-    "37;72::5", "210;76;1200D::121", "36;78::5", "80;80;1100D::9", "180;72;1050D;1073741824D::137", "42;87::5",
-    "65;95::5", "34D;34D;36;72", "170;76;1200D::121", "76;76;1200D::9", "150;80;1200D::121",
-    "90;90;1200D::9", "40;72;1200D;1073322394D::25", "200;82;1100D::121", "89;89;400D::9", "66;90::5",
-    "60;86::5", "40;76;45000D::9", "40;76;1D::17", "180;88;1350D::121", "180;80;1200D::121",
-    "43;92::5", "41;70::5", "23D;22D;40;72::501", "120;72;1200D::121", "42;67::5", "410;80;1350D::121",
-    "42;85::5", "215;72;1200D::121", "1.10;80;1350D;1075838976D::133", "260;72;800D::121", "50;76;1000D::9",
-    "40;88;1450D::9", "76;76;1450D::9", "340;88;1350D::121", "50;70;1550D::9", "62;74::5"
-}
-
-local pd = {  
-    spd = {
-        {0x14, gg.TYPE_FLOAT, 2147483648.0},
-        {0x18, gg.TYPE_FLOAT, 2147483648.0},
-        {0x1C, gg.TYPE_FLOAT, 2147483648.0},
-        {0x20, gg.TYPE_FLOAT, 2147483648.0},
-        {0x3C, gg.TYPE_DWORD, 65535},
-        {0x40, gg.TYPE_DWORD, 65535},
-        {0x44, gg.TYPE_DWORD, 65535},
-        {0x48, gg.TYPE_DWORD, 65535},
-        {0x6C, gg.TYPE_FLOAT, 4.8},
-        {0x70, gg.TYPE_FLOAT, 4.8},
-        {0x74, gg.TYPE_FLOAT, 5.0},
-        {0x78, gg.TYPE_FLOAT, 5.0},
-    }
-}
-
-local function jw(a, s)  
-    local e = {}
-    for i = 1, #pd.spd do
-        local o = pd.spd[i]
-        local v = o[3]
-        if (o[1] == 0x74 or o[1] == 0x78) and s then
-            v = s
+local k9x2 = {{"Carry","32;64;400D::9"},{"Fury","72;72;400D::9"},{"Ranger","75;68;750D::121"},{"Karma","220;72;800D::121"},{"Payback","72;72;800D::9"},{"Dustmaker","140;72;1050D::121"},{"Buggy","200;72;1050D::121"},{"Stringer","35;82;1100D::121"},{"Split fire","88;88;1100D::9"},{"Lionheart","120;82;1100D::121"},{"Lionpaw","84;84;1100D::9"},{"Mudbee","0;40;76;1100D::13"},{"Iron maiden","42;80;1250D::9"},{"Sweetdream","60;84::5"},{"Caprice","42;80;1300D::9"},{"Gepard","55;89::5"},{"Defender","220;76;1200D::121"},{"Jupiter","65;88::5"},{"Inferno","48;85"},{"Mercury","65;86::5"},{"Meridian","55;83::5"},{"Novara","56;87::5"},{"RangerOG","37;72::5"},{"Somerset","210;76;1200D::121"},{"Moonwalker","36;78::5"},{"Moon rover","80;80;1100D::9"},{"Jazzy","180;72;1050D;1073741824D::137"},{"Legende","42;87::5"},{"Onyx","65;95::5"},{"Rainbow","34D;34D;36;72"},{"Vulcan","170;76;1200D::121"},{"Hellfire","76;76;1200D::9"},{"Carbonyeti","150;80;1200D::121"},{"Goldenyeti","90;90;1200D::9"},{"Taurus","40;72;1200D;1073322394D::25"},{"Hurricane","200;82;1100D::121"},{"Typhoon","89;89;400D::9"},{"Union","66;90::5"},{"Aeon","60;86::5"},{"Icarus","40;76;45000D::9"},{"Voltage","40;76;1D::17"},{"Peacemaker","180;88;1350D::121"},{"Behemoth","180;80;1200D::121"},{"Educator","43;92::5"},{"Goliath","41;70::5"},{"Tuky","23D;22D;40;72::501"},{"Rusty","120;72;1200D::121"},{"Poo Mobile","42;67::5"},{"Maximus","410;80;1350D::121"},{"Thunder","42;85::5"},{"School master","215;72;1200D::121"},{"Ursus","1.10;80;1350D;1075838976D::133"},{"Zed","260;72;800D::121"},{"Firetruck","50;76;1000D::9"},{"Titan","40;88;1450D::9"},{"Titanium","76;76;1450D::9"},{"Dashund","340;88;1350D::121"},{"Hercules","50;70;1550D::9"},{"Icebreaker","62;74::5"}}
+local p3d7 = {s0d={{0x14,gg.TYPE_FLOAT,2147483648.0},{0x18,gg.TYPE_FLOAT,2147483648.0},{0x1C,gg.TYPE_FLOAT,2147483648.0},{0x20,gg.TYPE_FLOAT,2147483648.0},{0x3C,gg.TYPE_DWORD,65535},{0x40,gg.TYPE_DWORD,65535},{0x44,gg.TYPE_DWORD,65535},{0x48,gg.TYPE_DWORD,65535},{0x6C,gg.TYPE_FLOAT,4.8},{0x70,gg.TYPE_FLOAT,4.8},{0x74,gg.TYPE_FLOAT,5.0},{0x78,gg.TYPE_FLOAT,5.0}}}
+local function j8w1(b4s, s9p)
+    local t0x = {}
+    for i = 1, #p3d7.s0d do
+        local o1f = p3d7.s0d[i]
+        local v2l = o1f[3]
+        if (o1f[1] == 0x74 or o1f[1] == 0x78) and s9p then
+            v2l = s9p
         end
-        table.insert(e, {address = a + o[1], flags = o[2], value = v})
+        t0x[#t0x+1] = {
+            address = b4s + o1f[1],
+            flags = o1f[2],
+            value = v2l
+        }
     end
-    gg.setValues(e)
+    gg.setValues(t0x)
 end
-
-local function x1(i)
-    local p = m1[i]
-    if not p then return nil end
+local function f7b3(i2x)
     gg.clearResults()
-    gg.searchNumber(p, gg.TYPE_FLOAT)
-    local r = gg.getResults(100)
-    if #r == 0 then
-        gg.clearResults()
-        return nil
-    end
-    local b = nil
-    for j = #r, 1, -1 do
-        if r[j].flags == gg.TYPE_FLOAT then
-            b = r[j].address
+    gg.searchNumber(k9x2[i2x][2], gg.TYPE_FLOAT)
+    local r6s = gg.getResults(100)
+    if #r6s == 0 then return nil end
+
+    local b4s = nil
+    for j = #r6s, 1, -1 do
+        if r6s[j].flags == gg.TYPE_FLOAT then
+            b4s = r6s[j].address
             break
         end
     end
-    if not b then
-        b = r[1].address  -- fallback jika tidak ada FLOAT
-    end
     gg.clearResults()
-    return b
+    return b4s
 end
-
-
-local function ca(i, s) 
-    local b = x1(i)
-    if not b then
-        gg.alert("Car not found: " .. (k2[i] or tostring(i)))
-        return false
+local function a5c9(i2x, s9p)
+    local b4s = f7b3(i2x)
+    if not b4s then
+        gg.alert("Car not found: "..k9x2[i2x][1])
+        return
     end
-    jw(b, s)
-    gg.toast("Speed " .. tostring(s) .. " applied to: " .. (k2[i] or tostring(i)))
-    return true
+    j8w1(b4s, s9p)
+    gg.toast("Speed "..s9p.." applied to: "..k9x2[i2x][1])
 end
-
-function spd()
-    local d = "5.0"
-    local i = gg.prompt({"Enter speed value (float) e.g. 11.5"}, {d}, {"number"})
-    if not i then return end
-    local s = tonumber(i[1])
-    if not s then gg.alert("Invalid value. Example: 11.5") return end
-
-    local c = {}
-    for n = 1, #k2 - 1 do table.insert(c, k2[n]) end
-    local ch = gg.multiChoice(c, nil, "Select cars\nSpeed: " .. tostring(s))
-    if not ch then return end
-
-    for n, sel in pairs(ch) do
-        if sel then ca(n, s) end
+function s4d0()
+    local p9v = gg.prompt(
+        {"Enter speed value (float) e.g. 11.5"},
+        {"5.0"},
+        {"number"}
+    )
+    if not p9v then return end
+    local s9p = tonumber(p9v[1])
+    if not s9p then
+        gg.alert("Invalid value")
+        return
+    end
+    local m3n = {}
+    for i,v in ipairs(k9x2) do
+        m3n[i] = "⌖ "..v[1]
+    end
+    local c7h = gg.multiChoice(m3n, nil, "Select Cars\nSpeed: "..s9p)
+    if not c7h then return end
+    for i,v in pairs(c7h) do
+        if v then a5c9(i, s9p) end
     end
 end
-
 
 function setLevel()
     local input = gg.prompt({"Enter Level:"}, {""}, {"number"})
@@ -1005,7 +962,7 @@ function mainMenu()
     elseif menu==2 then irnco()
     elseif menu==3 then exitCar()
     elseif menu==4 then nitroRepair()
-    elseif menu==5 then spd()
+    elseif menu==5 then s4d0()
     elseif menu==6 then x7k2()
     elseif menu==7 then ulkc()
     elseif menu==8 then mwlx()
