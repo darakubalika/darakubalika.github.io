@@ -914,7 +914,7 @@ function x7k2()
         gg.toast("not found")
         return
     end
-    local t6m,b1x,s7p = 60,-0x4,0x1C0
+    local t6m,b1x,s7p = 65,-0x4,0x1C0
     local e3d,u8s = {},{}
     for _,v in ipairs(r6s) do
         local a0r = v.address
