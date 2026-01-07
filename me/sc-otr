@@ -575,7 +575,6 @@ function setAll()
     gg.clearResults()
 end
 
-
 function levelMenu()
     gg.alert("⚠️ WARNING\n\nIf you use this script, make sure NOT to collect coins until the process is completely finished!")
     local choice = gg.choice({
